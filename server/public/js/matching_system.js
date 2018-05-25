@@ -108,7 +108,8 @@ function getMatchedUserGoals(data){
                 getMatchedUsername();
             } else {
                 var p = $("<p>").text("No goals for today").addClass('center no-goals');
-                $(".no-goals-container").append(p);
+                // $(".no-goals-container").append(p);
+                $(".interested-users-cotainer").append(p);
             }
         },
         error: function(xhr, status, err){
@@ -243,7 +244,7 @@ function rendergoalOnDashboardOLD(goals){
             var userProfile = $("<div>").addClass('profileImg');
             var img = $("<img>").attr("src", "../images/default-user.png");
             userProfile.append(img);
-            var user = $("<p>").addClass('user-name').text(goalDescription);
+            var user = $("<p>").addClass('user-name truncate').text(goalDescription);
             goalBar.append(userProfile, user);
 
             //Creates drop down menu to mark goal as edit or delete

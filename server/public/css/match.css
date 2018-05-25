@@ -37,7 +37,7 @@ body{
 }
 
 .no-goals, .no-users{
-    font-size: 2rem;
+    font-size: 1.8rem;
     padding-top: 3%;
 }
 
@@ -57,6 +57,7 @@ body{
 .all{
     width: 50%;
     background-color: rgba(162, 211, 218, 0.5);
+    cursor: pointer;
 }
 
 .interested{
@@ -69,7 +70,7 @@ body{
     height: 89%;
     display: inline-flex;
     flex-direction: column;
-    overflow-y: auto; 
+    /* overflow-y: auto;  */
     width: 100%;
 }
 
@@ -173,7 +174,7 @@ body{
 /**********INDIVIDUAL MATCHES**********/
 .goal-container{
     width: 25%;
-    margin-left: 8%;
+    margin-left: 5%;
     text-align: center;
     margin-top: 5%;
     margin-bottom: 5%;
@@ -321,17 +322,28 @@ i.large.material-icons{
 @media only screen and (min-width : 320px) {
 
     .title-bar {
-        height: 2rem;
+        height: 3rem;
         font-size: 1.8rem;
         padding-top: 0%;
     }
     .matchedUser {
-        height: 1.5rem;
-        font-size: 0.8rem;
+        height: 2rem;
+        font-size: 1rem;
         padding-top: 2px;
     }
     .match-list{
         height: 94%;
+    }
+    .arrow-left i,
+    .arrow-right i{
+        font-size: 2rem;
+    }
+
+    .no-goals, .no-users{
+        font-size: 1rem;
+    }
+    button.dropdown-button.dropdown-trigger.goal-button.material-icons {
+        font-size: 10px;
     }
     .footer-container{
         height: 3.5rem;
@@ -368,10 +380,22 @@ i.large.material-icons{
     .match-list{
         height: 87%;
     }
+    .arrow-left i,
+    .arrow-right i{
+        font-size: 3rem;
+    }
+
+    .no-goals, .no-users{
+        font-size: 1.5rem;
+    }
+    button.dropdown-button.dropdown-trigger.goal-button.material-icons {
+        font-size: 15px;
+    }
     .footer-container{
         height: 4.5rem;
     }
-    .footer-items a i {
+    .footer-items a i,
+    .arrow-right i {
         font-size: 2.2rem;
         height: 40px;
         line-height: 40px;
@@ -402,6 +426,17 @@ i.large.material-icons{
     }
     .match-list{
         height: 89%;
+    }
+    .arrow-left i,
+    .arrow-right i{
+        font-size: 4rem;
+    }
+
+    .no-goals, .no-users{
+        font-size: 1.8rem;
+    }
+    button.dropdown-button.dropdown-trigger.goal-button.material-icons {
+        font-size: 20px;
     }
 
     .footer-container{

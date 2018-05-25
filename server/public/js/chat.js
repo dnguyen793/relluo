@@ -1,6 +1,15 @@
-// $(document).ready(matchedUsersCheck);
+// $(document).ready(initializeApp);
 
+// function initializeApp(){
+//     $(".btn-small").on("click", function(){
+//         var message = $("#m").val();
+//         if(message === ''){
+//             console.log('empty message');
+//             return;
+//         }
+//     })
 
+// }
 
 // function matchedUsersCheck(){
 //     $.ajax({

@@ -201,7 +201,7 @@ button.btn.btn-small{
 .footer-container{
     height: 9%;
     border-top: 1px rgb(87, 87, 87) solid;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
     max-width: 600px;
@@ -273,7 +273,7 @@ nav ul li{
     }
     input#m {
         font-size: 1rem;
-        margin-bottom: 7px;
+        margin-bottom: 5px;
     }
     form button{
         margin-left: 10%;
@@ -326,7 +326,7 @@ nav ul li{
     }
     input#m {
         font-size: 1.2rem;
-        margin-bottom: 7px;
+        margin-bottom: 5px;
     }
     form button{
         margin-left: 10%;
@@ -366,7 +366,7 @@ nav ul li{
         margin: 0% 7.5%;
     }
     #messages {
-        height: 87%;
+        height: 62%;
         font-size: 1.3rem;
         margin-top: 5px;
     }
@@ -381,7 +381,7 @@ nav ul li{
     }
     input#m{
         font-size: 1.5rem;
-        margin-bottom: 15px;
+        margin-bottom: 5px;
     }
     form.row.valign-wrapper{
         padding: 7px 5px;
