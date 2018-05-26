@@ -314,6 +314,9 @@ i.large.material-icons{
 .show{
     display: block;
 }
+p.user-name.truncate {
+    overflow-x: hidden;
+}
 
 
 

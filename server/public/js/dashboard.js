@@ -178,15 +178,15 @@ function renderGoalOnDashboard(goals){
         let goalSelector = '#goalId'+goalId;
         var completeItem = $('<li>').addClass('complete center-align').on('click', ()=>{
             completeGoal(goalId,goals);
-            $(goalSelector).addClass('animated bounceOutLeft');
-            setTimeout((()=>{$(goalSelector).remove()}), 500);
-                }).wrapInner('<a href="#!"><i class="material-icons small">check</i></a>');
+            // $(goalSelector).addClass('animated bounceOutLeft');
+            // setTimeout((()=>{$(goalSelector).remove()}), 500);
+                }).wrapInner('<a href="#!">Did it</a>');
 
         var exitItem = $('<li>').addClass('center-align').on('click', ()=>{
             incompleteGoal(goalId,goals);
-            $(goalSelector).addClass('animated bounceOutLeft');
-            setTimeout((()=>{$(goalSelector).remove()}), 500);
-        }).wrapInner('<a href="#!"><i class="material-icons small">close</i></a>');
+            // $(goalSelector).addClass('animated bounceOutLeft');
+            // setTimeout((()=>{$(goalSelector).remove()}), 500);
+        }).wrapInner('<a href="#!">Hide</a>');
 
         dropDownList.append(completeItem, exitItem);
         goalContainer.append(imageContainer);
@@ -236,6 +236,15 @@ function completeGoal(goalId, goals) {
         },
         success: function (json_data) {
             var data = json_data;
+            $(goalSelector).addClass('animated bounceOutLeft');
+            setTimeout((()=>{$(goalSelector).remove()}), 500);
+        },
+        error: function(message){
+            console.log('theres an error');
+            $(".serverErr").text("Error completing goal!");
+            setTimeout(function(){
+                $(".serverErr").text("");
+            }, 5000);
         }
     });
 };
@@ -259,6 +268,15 @@ function incompleteGoal(goalId, goals) {
         },
         success: function (json_data) {
             var data = json_data;
+            $(goalSelector).addClass('animated bounceOutLeft');
+            setTimeout((()=>{$(goalSelector).remove()}), 500);
+        },
+        error: function(){
+            $(".serverErr").text("Error dismissing goal!");
+            setTimeout(function(){
+                $(".serverErr").text("");
+            }, 5000);
+
         }
     });
 };

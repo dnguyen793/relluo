@@ -87,6 +87,15 @@ a.btn.btn-small{
 
 }
 
+.serverErr{
+    height: 2.5rem;
+    /* background-color: #FFE2A8; */
+    font-size: 1.5rem; 
+    text-align: center; 
+    color: rgb(226, 6, 6);
+    font-weight: 700;
+}
+
 /**********INDIVIDUAL GOALS**********/
 .goal-container{
     display: inline-flex;
@@ -169,23 +178,27 @@ a.btn.btn-small{
 
 }
 
-li.complete.center-align:hover,
-li.center-align:hover {
-    background-color: #FFE2A8;
-}
-
 .button-container > .dropdown-content li {
     text-align: center;
+    min-height: 40px;
 }
 
 .button-container > .dropdown-content li > a > i{
-    /* float: none; */
     margin: 0;
 
 }
 
+.dropdown-content li>a:hover {
+    background-color: white;
+}
+
 .dropdown-content li>a, .dropdown-content li>span{
-    width: 10rem;
+    font-size: 15px;
+    display: block;
+    line-height: 15px;
+    padding: 9px 9px;
+    border-radius: 11px;
+    background-color: #FFE2A8;
 }
 
 button.dropdown-button.dropdown-trigger.goal-button {
