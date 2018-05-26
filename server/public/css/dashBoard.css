@@ -89,7 +89,6 @@ a.btn.btn-small{
 
 .serverErr{
     height: 2.5rem;
-    /* background-color: #FFE2A8; */
     font-size: 1.5rem; 
     text-align: center; 
     color: rgb(226, 6, 6);
@@ -277,6 +276,21 @@ nav ul li{
     .message p {
         font-size: 1rem;
     }
+    .serverErr{
+        height: 1.5rem;
+        font-size: 1rem; 
+    }
+    .dropdown-content li>a{
+        font-size: 1rem; 
+    }
+    .button-container > .dropdown-content li {
+        min-height: 25px;
+    }
+    .dropdown-content li>a, .dropdown-content li>span {
+        line-height: 5px;
+        padding: 8px 5px;
+        border-radius: 8px;
+    }
     a.btn.btn-small{
         font-size: 0.9rem;
         height: 30px;
@@ -320,6 +334,18 @@ nav ul li{
     }
     .message p {
         font-size: 1.2rem;
+    }
+    .serverErr{
+        height: 2rem;
+        font-size: 1.3rem; 
+    }
+    .button-container > .dropdown-content li {
+        min-height: 30px;
+    }
+    .dropdown-content li>a, .dropdown-content li>span {
+        line-height: 7px;
+        padding: 8px 5px;
+        border-radius: 8px;
     }
     a.btn.btn-small{
         font-size: 1.2rem;
@@ -372,7 +398,20 @@ nav ul li{
         font-size: 1.5rem;
         padding-top: 5%;
     }
-    
+    .serverErr{
+        height: 2.5rem;
+        font-size: 1.5rem; 
+    }
+    .button-container > .dropdown-content li {
+        text-align: center;
+        min-height: 40px;
+    }
+    .dropdown-content li>a, .dropdown-content li>span {
+        font-size: 15px;
+        line-height: 15px;
+        padding: 9px 9px;
+        border-radius: 11px;
+    }
     a.btn.btn-small{
         font-size: 1.3rem;
         height: 45px;

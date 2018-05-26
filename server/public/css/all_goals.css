@@ -181,9 +181,9 @@ a.btn.btn-small{
     display: block;
     line-height: 15px;
     padding: 9px 9px;
-    border-radius: 11px;
+    /* border-radius: 11px; */
     background-color: #FFE2A8;
-    min-height: 40px;
+    min-height: 0px;
 }
 
 button.dropdown-button.dropdown-trigger.goal-button {
@@ -264,6 +264,24 @@ nav ul li{
     .message p {
         font-size: 1rem;
     }
+    .serverErr{
+        height: 1.5rem;
+        font-size: 1rem; 
+    }
+    .dropdown-content li>a{
+        font-size: 1rem; 
+    }
+    .button-container > .dropdown-content li{
+        min-height: 25px;
+
+    }
+    .dropdown-button .dropdown-content li>a, 
+    .dropdown-button .dropdown-content li>span {
+        line-height: 5px;
+        padding: 8px 5px;
+        min-height: 25px;
+
+    }
     a.btn.btn-small{
         font-size: 0.9rem;
         height: 30px;
@@ -312,6 +330,18 @@ nav ul li{
     }
     .message p {
         font-size: 1.5rem;
+    }
+    .serverErr{
+        height: 2rem;
+        font-size: 1.3rem; 
+    }
+    .dropdown-content li>a{
+        min-height: 30px;
+    }
+    .dropdown-content li>a, .dropdown-content li>span {
+        line-height: 7px;
+        padding: 8px 5px;
+        border-radius: 8px;
     }
     a.btn.btn-small{
         font-size: 1.2rem;
@@ -388,6 +418,20 @@ nav ul li{
         height: 20%;
         width: 4%;
         transform: translate(158%, 15%);
+    }
+    .serverErr{
+        height: 2.5rem;
+        font-size: 1.5rem; 
+    }
+    .button-container .dropdown-content li {
+        text-align: center;
+        min-height: 40px;
+    }
+    .dropdown-content li>a, .dropdown-content li>span {
+        font-size: 15px;
+        line-height: 15px;
+        padding: 9px 9px;
+        border-radius: 11px;
     }
 
 
