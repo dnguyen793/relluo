@@ -50,7 +50,11 @@ function getData(){
             
         },
         error: function(xhr, status, err){
-            console.log(err)
+            console.log(err);
+            $(".serverErr").text("Error loading goals!");
+            setTimeout(function(){
+                $(".serverErr").text("");
+            }, 5000);
         }
     })
 }
@@ -99,7 +103,11 @@ function editGoal(goalSelected, goalId){
                     getData();
                 },
                 error: function(xhr, status, err){
-                    console.log(err)
+                    console.log(err);
+                    $(".serverErr").text("Error editing goal!");
+                    setTimeout(function(){
+                        $(".serverErr").text("");
+                    }, 5000);
                 }
             });
         };
@@ -126,7 +134,11 @@ function editGoal(goalSelected, goalId){
                     getData();
                 },
                 error: function(xhr, status, err){
-                    console.log(err)
+                    console.log(err);
+                    $(".serverErr").text("Error editing goal!");
+                    setTimeout(function(){
+                        $(".serverErr").text("");
+                    }, 5000);
                 }
             });
     });
@@ -150,7 +162,11 @@ function deleteGoal(goalId){
             }, 1000);
         },
         error: function(xhr, status, err){
-            console.log(err)
+            console.log(err);
+            $(".serverErr").text("Error deleting goal!");
+            setTimeout(function(){
+                $(".serverErr").text("");
+            }, 5000);
         }
     })
 }
