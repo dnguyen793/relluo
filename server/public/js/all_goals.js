@@ -25,20 +25,7 @@ function getData(){
             $('.all-goals-list').empty();
 
             if(resp.data.length === 0){
-                let div = $('<div>', {
-                    class: 'message'
-                });
-                let p = $('<p>', {
-                    text: 'You have no goals to display'
-                });
-                let a = $('<a>', {
-                    class: 'btn btn-small z-depth-2',
-                    href: 'create_goal.html',
-                    text: 'Add Goal'
-                });
-
-                div.append(p, a);
-                $('.all-goals-list').append(div);
+                $(".message").removeClass('hidden');
             }
             else{
                 rendergoalOnDashboard(resp.data)

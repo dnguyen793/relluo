@@ -1,4 +1,10 @@
-// $(document).ready(initializeApp);
+$(document).ready(function(){
+    // $('#messages').animate({
+    //     scrollTop: $('#messages')[0].scrollHeight}, 2000);
+
+    var log = $('#messages');
+    log.animate({ scrollTop: log.prop('scrollHeight')}, 1000);  
+});
 
 // function initializeApp(){
 //     $(".btn-small").on("click", function(){
