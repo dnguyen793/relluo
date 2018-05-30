@@ -68,8 +68,8 @@ function editGoal(goalSelected, goalId){
     }).appendTo(textToEdit).focus();
 
     
-    $('input').on('keypress',  (e)=>{
-        if(e.keyCode == 13){
+    $('input').on('keyup', (e)=>{
+        if(e.keyCode == 13 || e.keyCode == 27){
             let edit = $('input').val();
             if(!edit){
                 edit = currentText;
