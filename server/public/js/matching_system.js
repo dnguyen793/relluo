@@ -68,6 +68,7 @@ function getMatchedUsername(){
             if(data.data[0]){
                 console.log(data.data);
                 matchedUserUsername = data.data[0].username;
+                console.log('matchedUserUsername', matchedUserUsername);
             } else {
                 var p = $("<p>").text("No goals for today").addClass('center');
                 $(".match-list").append(p);
@@ -83,11 +84,9 @@ function getMatchedUserGoals(data){
     var d = new Date();
     var n = d.getDay();
     var day = n;
-    console.log("Day ======" + day);
 
     let matchedUser = data.data[0].matched_user_id;
     let userId = data.data[0].user_id;
-    console.log(day);
     $.ajax({
         type: 'POST',
         url: '/matchedgoals',
@@ -105,7 +104,7 @@ function getMatchedUserGoals(data){
                 console.log(data.data);
                 $('.all-goals-list').empty();
                 rendergoalOnDashboard(data.data);
-                getMatchedUsername();
+                // getMatchedUsername();
             } else {
                 var p = $("<p>").text("No goals for today").addClass('center no-goals');
                 // $(".no-goals-container").append(p);
@@ -196,6 +195,7 @@ function rendergoalOnDashboard(goals){
 
         //Creates a container with the goal description
         var goalBar = $("<div>").addClass('goal-description partner-goal-description z-depth-3').text(goalDescription);
+        // var goalBar = $("<div>").addClass('goal-description partner-goal-description z-depth-3').text(matchedUserUsername+': '+ goalDescription);
 
         //Creates drop down menu to mark goal as edit or delete
         var dropDownMenuButtonContainer = $('<div>').addClass('button-container z-depth-3');
