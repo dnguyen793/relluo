@@ -25,20 +25,7 @@ function getData(){
             $('.all-goals-list').empty();
 
             if(resp.data.length === 0){
-                let div = $('<div>', {
-                    class: 'message'
-                });
-                let p = $('<p>', {
-                    text: 'You have no goals to display'
-                });
-                let a = $('<a>', {
-                    class: 'btn btn-small z-depth-2',
-                    href: 'create_goal.html',
-                    text: 'Add Goal'
-                });
-
-                div.append(p, a);
-                $('.all-goals-list').append(div);
+                $(".message").removeClass('hidden');
             }
             else{
                 rendergoalOnDashboard(resp.data)
@@ -81,8 +68,8 @@ function editGoal(goalSelected, goalId){
     }).appendTo(textToEdit).focus();
 
     
-    $('input').on('keypress',  (e)=>{
-        if(e.keyCode == 13){
+    $('input').on('keyup', (e)=>{
+        if(e.keyCode == 13 || e.keyCode == 27){
             let edit = $('input').val();
             if(!edit){
                 edit = currentText;

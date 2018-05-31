@@ -154,16 +154,17 @@ form button {
     width: 100%;
     height: 88%;
     color: black;
-    overflow: auto;
+    overflow-y: auto;
     background-color: white;
     font-size: 1.3rem;
     margin-top: 5px;
 }
 
-#messages li {
+#messages p {
     padding: 5px 10px;
+    word-wrap: break-word;
 }
-#messages li:nth-child(odd) {
+#messages p:nth-child(odd) {
     background: rgba(119, 178, 186, 0.35);
     color: black;
 }

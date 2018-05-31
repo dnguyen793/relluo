@@ -20,7 +20,6 @@
                 event.preventDefault();
                 var message = $("#m").val();
                 if(message === ''){
-                    console.log('empty message');
                     return;
                 }
                 else{      
@@ -31,10 +30,16 @@
 
             });
             socket.on('chat message', function(msg){
-                $('#messages').append($('<li>').text(msg));
-                window.scrollTo(0, document.body.scrollHeight);
+                $('#messages').append($('<p>').text(msg));
+                // setInterval(updateScroll,1000);
+                updateScroll();
+
             });
         });
+        function updateScroll(){
+            var element = document.getElementById("messages");
+            element.scrollTop = element.scrollHeight;
+        }
     </script>
 
 </head>
@@ -44,7 +49,7 @@
         <div class='sub-title'></div>
 
         <div class="match-list">
-            <ul id="messages"></ul>
+            <div id="messages"></div>
             <form class="row valign-wrapper" action="">
                 <input class="col s9" id="m" placeholder="Your message goes here..."/>
                 <div class="col s3 button-container">
