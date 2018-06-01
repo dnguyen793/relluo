@@ -105,7 +105,7 @@ function getData(){
     console.log('n',n)
     $.ajax({
         type: 'POST',
-        url: '/goalssqlday',
+        url:  '/goalssqlday',
         data: {
             day:n
         },
