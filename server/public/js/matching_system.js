@@ -30,7 +30,7 @@ function showInterestedUsers(){
 function matchedUsersCheck(){
     $.ajax({
         type: 'POST',
-        url: '/matched',
+        url: serverBase+'/matched',
         dataType: 'json',
         jsonpCallback: 'callback',
         crossDomain: true,
@@ -54,7 +54,7 @@ function getMatchedUsername(){
     let userId = userData.data[0].user_id;
     $.ajax({
         type: 'POST',
-        url: '/getMatchedUsername',
+        url: serverBase+'/getMatchedUsername',
         dataType: 'json',
         jsonpCallback: 'callback',
         crossDomain: true,
@@ -89,7 +89,7 @@ function getMatchedUserGoals(data){
     let userId = data.data[0].user_id;
     $.ajax({
         type: 'POST',
-        url: '/matchedgoals',
+        url: serverBase+'/matchedgoals',
         dataType: 'json',
         jsonpCallback: 'callback',
         crossDomain: true,
@@ -120,7 +120,7 @@ function getMatchedUserGoals(data){
 function checkForInterestedMatches(){
     $.ajax({
         type: 'POST',
-        url: '/interestedMatching',
+        url: serverBase+'/interestedMatching',
         dataType: 'json',
         jsonpCallback: 'callback',
         crossDomain: true,
@@ -150,7 +150,7 @@ function checkForInterestedMatches(){
 function getData(category){
     $.ajax({
         type: 'POST',
-        url: '/matching',
+        url: serverBase+'/matching',
         dataType: 'json',
         jsonpCallback: 'callback',
         crossDomain: true,
@@ -297,7 +297,7 @@ function rendergoalOnDashboardOLD(goals){
 function sendInterestedMatches(matchedUserId,username) {
     $.ajax({
         type: "POST",
-        url: "/matchingusers",
+        url: serverBase+"/matchingusers",
         // dataType: "json",
         data: {
             username: username,
@@ -316,7 +316,7 @@ function getMatches(matchedUserId) {
     console.log(matchedUserId);
     $.ajax({
         type: "POST",
-        url: "/matchingpairs",
+        url: serverBase+"/matchingpairs",
         // dataType: "json",
         data: {
             matchedUserId: matchedUserId,
@@ -340,7 +340,7 @@ function sendMatchToTable(data) {
     console.log(userId, interested_user_id);
     $.ajax({
         type: "POST",
-        url: "/matchedusers",
+        url: serverBase+"/matchedusers",
         data: {
             user_id: userId,
             matched_user_id: interested_user_id,
@@ -356,7 +356,7 @@ function sendMatchToTable(data) {
 function updateUsers(userId, interested_user_id) {
     $.ajax({
         type: "POST",
-        url: "/users/update",
+        url: serverBase+"/users/update",
         data: {
             user_id: userId,
             matched_user_id: interested_user_id,

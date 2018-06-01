@@ -419,7 +419,7 @@ function postGoalToServer( object ){
     console.log('created Object', object);
     $.ajax({
         type: "POST",
-        url: "/goals",
+        url: serverBase+"/goals",
         data: {
             goal: object.goal,
             category: object.category,
