@@ -105,7 +105,7 @@ function getData(){
     console.log('n',n)
     $.ajax({
         type: 'POST',
-        url:  '/goalssqlday',
+        url:  serverBase+'/goalssqlday',
         data: {
             day:n
         },
@@ -229,7 +229,7 @@ function completeGoal(goalId, goals) {
     console.log("This is the goals" + goals);
     $.ajax({
         type: "POST",
-        url: "/goals/update/status",
+        url: serverBase+"/goals/update/status",
         data: {
             goal_id: goalId,
             stats: goalstat,
@@ -261,7 +261,7 @@ function incompleteGoal(goalId, goals) {
     console.log("This is the goals" + goals);
     $.ajax({
         type: "POST",
-        url: "/goals/update/status",
+        url: serverBase+"/goals/update/status",
         data: {
             goal_id: goalId,
             stats: goalstat,
