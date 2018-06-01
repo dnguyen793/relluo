@@ -28,7 +28,7 @@ function postUserToServer() {
             if(data.errors === 'Invalid password or user'){
                 $(".emailPwdInput, .input-feild, label").css("color","red");
             } else if (data.success === true){
-                window.location = "/dashboard";
+                window.location = serverBase+"/dashboard";
             }
             console.log("This is the data" + json_data);
             
