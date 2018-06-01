@@ -103,6 +103,7 @@ function getData(){
     let d = new Date();
     let n = (d.getUTCDay());
     console.log('n',n)
+    console.log
     $.ajax({
         type: 'POST',
         url:  serverBase+'/goalssqlday',

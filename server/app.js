@@ -26,7 +26,7 @@ app.use(express.static(path.join(__dirname, 'public', 'js')));
 //---Route allows you go to index //
 //---first thing '/' is always what //
 require('./routes/api')(app);
-require('./routes/auth')(app);
+// require('./routes/auth')(app);
 require('./routes/pageroutes')(app);
 
 io.on('connection', function(socket){
