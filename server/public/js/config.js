@@ -1,0 +1,1 @@
+const serverBase = window.location.protocol + '//' + window.location.host+ ':8000';

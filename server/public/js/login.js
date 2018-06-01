@@ -17,7 +17,7 @@ function postUserToServer() {
     var password = $("#password").val();
     $.ajax({
         type: "POST",
-        url: "/login",
+        url: serverBase+"/login",
         // dataType: "json",
         data: {
             email: email,
