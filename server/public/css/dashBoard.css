@@ -409,7 +409,7 @@ nav ul li{
     .dropdown-content li>a, .dropdown-content li>span {
         font-size: 15px;
         line-height: 15px;
-        padding: 9px 9px;
+        padding: 9px 5px;
         border-radius: 11px;
     }
     a.btn.btn-small{
