@@ -12,7 +12,7 @@ function getData(){
     let day = n;
     $.ajax({
         type: 'GET',
-        url: '/goalssql',
+        url: serverBase+'/goalssql',
         dataType: 'json',
         jsonpCallback: 'callback',
         crossDomain: true,
@@ -83,7 +83,7 @@ function editGoal(goalSelected, goalId){
                     goal: edit,
                     goal_id: goalId,
                 },
-                url: '/goals/update',
+                url: serverBase+'/goals/update',
                 // dataType: 'json',
 
                 success: function(resp){
@@ -114,7 +114,7 @@ function editGoal(goalSelected, goalId){
                     goal: edit,
                     goal_id: goalId,
                 },
-                url: '/goals/update',
+                url: serverBase+'/goals/update',
                 // dataType: 'json',
 
                 success: function(resp){
@@ -138,7 +138,7 @@ function deleteGoal(goalId){
         data: {
             goal_id: goalId,
         },
-        url: '/goals/delete',
+        url: serverBase+'/goals/delete',
         // dataType: 'json',
         
         success: function(resp){

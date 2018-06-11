@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC|Roboto:300" rel="stylesheet">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+    <script src="./js/config.js"></script>
     <script src='./js/login.js'></script>
 </head>
 
@@ -18,10 +19,7 @@
             <div class='appNameContainer center'>
                 <div class='appName'>Relluo</div>
             </div>
-            
-            <!-- <div class='image-container center'>
-                <img src="./images/logo_yellow.png" alt="logo">
-            </div> -->
+
             <div class='appDescription-container'>
                 <div class='center appDescription'>Keep accountable | Achieve your goals</div>
             </div>
@@ -50,11 +48,12 @@
         
                         <br />
                         <div>
-                                <button type='button' name='btn_login' class='login-button col s12 btn btn-medium waves-effect z-depth-3' onclick="postUserToServer()" onkeyup='enterKeyHandler()'>Login</button>
+                                <button type='button' name='btn_login' class='login-button col s12 btn btn-medium waves-effect z-depth-2' onclick="postUserToServer()" onkeyup='enterKeyHandler()'>Login</button>
                         </div>
                     </form>
                     <div ><span id='error-message'></span></div>
                 </div>
+<<<<<<< HEAD
                 <!-- <div class="welcome valign-wrapper"> -->
                     <div class="sign-up">
                         <div class="sign-up-container">        
@@ -73,9 +72,29 @@
                     </div>
                 <!-- </div> -->
             </main>
+=======
+>>>>>>> 75665ed8610a4d24a330bbec94292e1d9ae908db
             </main>
 
+            <div class="welcome valign-wrapper">
+                <div class="sign-up">
+                    <div class="sign-up-container">        
+                        <a href='sign_up.html'  class='col s3 btn btn-medium waves-effect z-depth-1 sign-up' name='btn_login'>
+                            Sign Up &nbsp
+                            <i class="small material-icons">person_add</i>
+                        </a>
+                    </div>
+    
+                    <div class="about_us_container">        
+                        <a href='about_us.html'  class='col s3 btn btn-medium waves-effect z-depth-1 about_us' name='btn_login'>
+                            About Us &nbsp
+                            <i class="small material-icons">people</i>
+                        </a>
+                    </div>
+                </div>
+            </div>
             
+        </div>        
     </div>
 </body>
 </html>

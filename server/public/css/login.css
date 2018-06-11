@@ -6,8 +6,10 @@ html{
 }
 
 body {
-    max-width: 600px;
     height: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    overflow-y: auto;
     font-family: 'Alegreya Sans ', sans-serif;
     background-image: url("../images/background/estee-janssens-396874-unsplash.jpg");
     background-size: cover;
@@ -51,7 +53,6 @@ body {
 
 .appNameContainer {
     width: 100%;
-
     font-size: 6rem;
     color: white;
     font-family: 'Alegreya Sans SC', sans-serif;
@@ -67,7 +68,6 @@ body {
 .appDescription {
     font-size: 1.5rem;
     overflow: hidden;
-    height: 100%;
     width: 100%;
     color: white;
     font-family: 'Alegreya Sans SC', sans-serif;
@@ -91,10 +91,8 @@ body {
     background-color: rgba(242, 242, 242, 0.8) !important;
 }
 
-.emailPwdInput{
-    /* background-color: rgba(255,255,255, 0.9); */
-    /* border-radius: 5%; */
-    /* padding: 13px 30px; */
+.emailPwdInput > div.row{
+    margin-bottom: 10px;
 }
 
 .emailPwdInput .input-field label{
@@ -151,13 +149,7 @@ body {
     width: 250px;
 }
 
-/* a.col.s12.btn.btn-medium.waves-effect.z-depth-3{
-    font-size: 1.2rem;
-    border-radius: 10px;
-    background-color: rgb(119, 178, 186);
-} */
-
-i.col.s12.btn.btn-medium.waves-effect.z-depth-3.waves-input-wrapper{
+i.col.s12.btn.btn-medium.waves-effect.z-depth-2.waves-input-wrapper{
     font-size: 1.2rem;
     border-radius: 10px;
     background-color: rgb(119, 178, 186);
@@ -192,7 +184,7 @@ i.col.s12.btn.btn-medium.waves-effect.z-depth-3.waves-input-wrapper{
 .sign-up-container{
     height: 40px;
     width: 100vw;
-    margin-bottom: 4%;
+    margin-bottom: 3%;
 }
 
 .about_us_container{
@@ -206,22 +198,25 @@ i.col.s12.btn.btn-medium.waves-effect.z-depth-3.waves-input-wrapper{
     margin-bottom: 5%;
 }
 
-a.col.s3.btn.btn-medium.waves-effect.z-depth-2.sign-up {
+a.col.s3.btn.btn-medium.waves-effect.z-depth-1.sign-up {
     position: relative;
     left: 50%;
     transform: translate(-50%, 0);
     font-size: 1.2rem;
-    height: 100%;
+    height: 3.6rem;
+    line-height: 3.6rem;
     width: 30%;
     border-radius: 10px;
     background-color: rgb(119, 178, 186);
 }
 
-a.col.s3.btn.btn-medium.waves-effect.z-depth-2.about_us{
+a.col.s3.btn.btn-medium.waves-effect.z-depth-1.about_us{
     position: relative;
     left: 50%;
     transform: translate(-50%, 0);
     font-size: 1.2rem;
+    height: 3.6rem;
+    line-height: 3.6rem;
     width: 30%;
     border-radius: 10px;
     background-color: rgb(226, 190, 118);
@@ -242,19 +237,24 @@ a.col.s3.btn.btn-medium.waves-effect.z-depth-2.login {
     vertical-align: top;
 }
 
-button.col.s12.btn.btn-medium.waves-effect.z-depth-3{
+button.col.s12.btn.btn-medium.waves-effect.z-depth-2{
     font-size: 1.2rem;
     background-color: rgb(119, 178, 186);
+    height: 3.6rem;
+}
+
+.login-button {
+    border-radius: 10px;
 }
 
 /**************************** Responsive ******************************/
 @media only screen and (min-width : 320px) {
+
     .welcome{
-        width: 100%;
+        width: 100%;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
     }
 
     .appNameContainer {
-
         font-size: 3rem;
         padding-top: 5%;
     }
@@ -271,33 +271,41 @@ button.col.s12.btn.btn-medium.waves-effect.z-depth-3{
         margin-bottom: 3%;
     }
     .login-wrapper .loginFormContainer {
-        width: 75%;
+        width: 70%;
         padding: 5%;
         border-radius: 10px;
     }
-    button.col.s12.btn.btn-medium.waves-effect.z-depth-3 {
-        font-size: 1rem;
+    .emailPwdInput > div.row{
+        margin-bottom: 5px;
     }
-    a.col.s3.btn.btn-medium.waves-effect.z-depth-2.sign-up {
+    button.col.s12.btn.btn-medium.waves-effect.z-depth-2 {
+        font-size: 1rem;
+        height: 3rem;
+        line-height: 3rem;
+    }
+    a.col.s3.btn.btn-medium.waves-effect.z-depth-1.sign-up {
         font-size: 1rem;
         width: 30%;
+        height: 3rem;
+        line-height: 3rem;
     }
     .about_us_container {
         height: 33px;
     }
-    a.col.s3.btn.btn-medium.waves-effect.z-depth-2.about_us {
+    a.col.s3.btn.btn-medium.waves-effect.z-depth-1.about_us {
         font-size: 1rem;
+        height: 3rem;
+        line-height: 3rem;
     }
 }
 
 @media only screen and (min-width : 480px) {
+
     .welcome{
-        width: 100%;
-        padding-bottom: 3rem;
+        width: 100%;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
     }
 
     .appNameContainer {
-
         font-size: 3rem;
         padding-top: 5%;
     }
@@ -314,22 +322,31 @@ button.col.s12.btn.btn-medium.waves-effect.z-depth-3{
         margin-bottom: 3%;
     }
     .login-wrapper .loginFormContainer {
-        width: 75%;
+        width: 70%;
         padding: 5%;
         border-radius: 10px;
     }
-    button.col.s12.btn.btn-medium.waves-effect.z-depth-3 {
-        font-size: 1rem;
+    .emailPwdInput > div.row{
+        margin-bottom: 5px;
     }
-    a.col.s3.btn.btn-medium.waves-effect.z-depth-2.sign-up {
+    button.col.s12.btn.btn-medium.waves-effect.z-depth-2 {
+        font-size: 1rem;
+        height: 3rem;
+        line-height: 3rem;
+    }
+    a.col.s3.btn.btn-medium.waves-effect.z-depth-1.sign-up {
         font-size: 1rem;
         width: 30%;
+        height: 3rem;
+        line-height: 3rem;
     }
     .about_us_container {
         height: 33px;
     }
-    a.col.s3.btn.btn-medium.waves-effect.z-depth-2.about_us {
+    a.col.s3.btn.btn-medium.waves-effect.z-depth-1.about_us {
         font-size: 1rem;
+        height: 3rem;
+        line-height: 3rem;
     }
 }
 
@@ -355,42 +372,39 @@ button.col.s12.btn.btn-medium.waves-effect.z-depth-3{
     }
     .sign-up-container {
         height: 40px;
-        margin-bottom: 4%;
+        margin-bottom: 3%;
     }
     .login-wrapper .loginFormContainer {
         width: 60%;
         padding: 5%;
         border-radius: 18px;
     }
-
-    button.col.s12.btn.btn-medium.waves-effect.z-depth-3 {
-        font-size: 1.2rem;
+    .emailPwdInput > div.row{
+        margin-bottom: 10px;
     }
 
-    a.col.s3.btn.btn-medium.waves-effect.z-depth-2.sign-up {
+    button.col.s12.btn.btn-medium.waves-effect.z-depth-2 {
         font-size: 1.2rem;
+        height: 3.6rem;
+    }
+
+    a.col.s3.btn.btn-medium.waves-effect.z-depth-1.sign-up {
+        font-size: 1.2rem;
+        height: 3.6rem;
+        line-height: 3.6rem;
     }
     .about_us_container {
         height: 40px;
         width: 100vw;
     }
-    a.col.s3.btn.btn-medium.waves-effect.z-depth-2.about_us {
+    a.col.s3.btn.btn-medium.waves-effect.z-depth-1.about_us {
         font-size: 1.2rem;
+        height: 3.6rem;
+        line-height: 3.6rem;
     }
-}
-
-/* @media only screen and (max-width: 600px){
-    body {
-        max-width: 600px;
-        height: auto;
-    }
-} */
+} 
 
 @media only screen and (min-width: 667px){
-    /* body{
-        width: 600px;
-        margin: 0 auto;
-    } */
 
     .sign-up {
         max-width: 600px;
@@ -415,6 +429,3 @@ button.col.s12.btn.btn-medium.waves-effect.z-depth-3{
     }
 }
 
-.login-button {
-    border-radius: 10px;
-}
