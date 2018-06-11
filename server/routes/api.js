@@ -304,7 +304,9 @@ module.exports = function (app) {
             res.json(output);
         });
     });
-
+    // app.post('/goals/update/status', (req, res) => {
+    //     res.send('dummy data');
+    // };
     app.post("/goals/update/incomplete", (req, res, next) => {
         var goal_id = req.body.goal_id;
         var stats = req.body.stats;
