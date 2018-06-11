@@ -1,4 +1,4 @@
-
+var goalSelector;
 $(document).ready(initializeApp);
 
 
@@ -176,7 +176,7 @@ function renderGoalOnDashboard(goals){
         completeButton.append(icons);
 
         var dropDownList = $('<ul>').addClass('dropdown-content').attr('id','dropdown'+goalId);
-        let goalSelector = '#goalId'+goalId;
+        goalSelector = '#goalId'+goalId;
         var completeItem = $('<li>').addClass('complete center-align').on('click', ()=>{
             completeGoal(goalId,goals);
             // $(goalSelector).addClass('animated bounceOutLeft');
@@ -187,7 +187,7 @@ function renderGoalOnDashboard(goals){
             incompleteGoal(goalId,goals);
             // $(goalSelector).addClass('animated bounceOutLeft');
             // setTimeout((()=>{$(goalSelector).remove()}), 500);
-        }).wrapInner('<a href="#!">Hide</a>');
+        }).wrapInner('<a href="#!">Dismiss</a>');
 
         dropDownList.append(completeItem, exitItem);
         goalContainer.append(imageContainer);
@@ -230,7 +230,7 @@ function completeGoal(goalId, goals) {
     console.log("This is the goals" + goals);
     $.ajax({
         type: "POST",
-        url: serverBase+"/goals/update/status",
+        url: "/goals/update/complete",
         data: {
             goal_id: goalId,
             stats: goalstat,
@@ -262,7 +262,8 @@ function incompleteGoal(goalId, goals) {
     console.log("This is the goals" + goals);
     $.ajax({
         type: "POST",
-        url: serverBase+"/goals/update/status",
+        url: "/goals/update/incomplete",
+
         data: {
             goal_id: goalId,
             stats: goalstat,
