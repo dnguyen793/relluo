@@ -103,9 +103,10 @@ function getData(){
     let d = new Date();
     let n = (d.getUTCDay());
     console.log('n',n)
+    console.log
     $.ajax({
         type: 'POST',
-        url: '/goalssqlday',
+        url:  serverBase+'/goalssqlday',
         data: {
             day:n
         },
@@ -262,6 +263,7 @@ function incompleteGoal(goalId, goals) {
     $.ajax({
         type: "POST",
         url: "/goals/update/incomplete",
+
         data: {
             goal_id: goalId,
             stats: goalstat,
