@@ -1,12 +1,13 @@
 html{
     background-color: #fff;
     font-size: 10px;
-    height: 100vh;
+    min-height: 100vh;
 
 }
 
 body {
     height: 100%;
+    min-height: 100vh;
     max-width: 600px;
     margin: 0 auto;
     overflow-y: auto;
@@ -20,11 +21,13 @@ body {
 
 .overlay{
     height: 100%;
+    min-height: 100vh;
     background-color: rgba(128, 170, 175, 0.5);
 }
 
 .shadow-overlay{
     height: 100%;
+    min-height: 100vh;
     background: -moz-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
     background: -webkit-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
     background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
@@ -102,7 +105,7 @@ body {
 
 .emailPwdInput input[type=password], 
 .emailPwdInput input[type=email]{
-    /* border-bottom: 1px solid white;  */
+    margin: 0 0 25px 0;
     font-size: 1.8rem;
 }
 
@@ -351,11 +354,6 @@ button.col.s12.btn.btn-medium.waves-effect.z-depth-2{
 }
 
 @media only screen and (min-width : 600px) {
-    body{
-        height: 100vh;
-        max-width: 600px;
-        margin: 0 auto;
-    }
 
     .appNameContainer {
 
