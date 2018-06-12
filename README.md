@@ -24,3 +24,9 @@ Relluo (Reliable and Doable) is a goal tracking app that allows you to easily ad
 - Git
 - GitHub
 - MeisterTask
+
+### Contributors
+
+[dnguyen793](https://github.com/dnguyen793) |
+[htt12](https://github.com/htt12) |
+[Keaton13](https://github.com/Keaton13) 
