@@ -152,7 +152,7 @@ form button {
     margin: 0;
     padding: 0;
     width: 100%;
-    height: 88%;
+    height: calc(100% - 75px);
     color: black;
     overflow-y: auto;
     background-color: white;
@@ -367,7 +367,7 @@ nav ul li{
         margin: 0% 7.5%;
     }
     #messages {
-        height: 62%;
+        height: calc(100% - 75px);
         font-size: 1.3rem;
         margin-top: 5px;
     }

@@ -48,7 +48,6 @@ function getEmailInput() {
     });
 
     $('.emailInput').on('focusout', function () {
-        console.log('outfocus - email:', email);
         if( !emailValidification.test(email) ){
 
             var text = 'Please enter a valid email address';
@@ -88,7 +87,6 @@ function getUsernameInput() {
     });
 
     $('.usernameInput').on('focusout', function () {
-        console.log('outfocus - username:', username);
         if( username.length < 8 ){
 
 
@@ -124,7 +122,6 @@ function getPasswordInput() {
     });
 
     $('.pwdInput').on('focusout', function () {
-        console.log('outfocus - pwd:', pwd);
         if( pwd.length < 8 ){
 
             var text = 'Password must contains at least 8 characters';
