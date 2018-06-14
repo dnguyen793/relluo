@@ -107,6 +107,14 @@ body{
     font-size: 1.1rem;
 }
 
+.redBorder{
+    border-bottom-color: red;
+}
+
+.borderBottom{
+    border-bottom: 1px solid #9e9e9e;
+}
+
 .emailMsg i,
 .usernameMsg i,
 .pwdMsg i{
