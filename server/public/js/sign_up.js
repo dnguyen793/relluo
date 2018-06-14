@@ -179,11 +179,21 @@ function sendData(email, username, password) {
         },
         success: function (json_data) {
             var data = json_data;
-            console.log(data);
             if (json_data.success) {
+                clearUserInput();
+
                 $('#buttonText').text('SUCCESS');
                 setTimeout(()=>{(window.location.replace('/login'))}, 1000);
             }
+            else{
+                $('.message span').text("Error creating account!").addClass('invalidInput');
+                setInterval( () => {
+                    $('.message span').text('');
+                }, 3500);
+            }
+        },
+        error: function(message){
+
         }
 
     })
@@ -201,10 +211,8 @@ function handleSignUpBtnClick() {
     }
     else {
         var newObject = createObject( userEmail , userName, userPwd);
-        console.log('new object:', newObject);
         $('.message span').text('');
         $('.signUpForm').addClass('animated bounceOut');
-        clearUserInput();
 
 
     }
