@@ -67,7 +67,7 @@ body{
 /************************************MATCH SECTION **********/
 
 .match-list{
-    height: 89%;
+    height: 90%;
     display: inline-flex;
     flex-direction: column;
     /* overflow-y: auto;  */
@@ -84,13 +84,13 @@ body{
 
 .interested-users-cotainer{
     display: inline-block;
-    width: 92%;
+    width: 94%;
     height: 100%;
     margin: 0;
 }
 
 .arrow-left{
-    width: 7%;
+    width: 5%;
     height: 100%;
     margin: 0;
     display: inline-block;
@@ -102,7 +102,7 @@ body{
     position: -webkit-sticky;
     position: sticky;
     top: 50%;
-    font-size: 4rem;
+    font-size: 3rem;
     box-shadow: 2px 0px 15px 5px rgba(255, 255, 255);
 }
 
@@ -129,7 +129,7 @@ body{
 
 /************************ ALL USERS ***********************/
 .arrow-right{
-    width: 7%;
+    width: 5%;
     height: 100%;
     margin: 0;
     display: inline-block;
@@ -147,7 +147,7 @@ body{
 
 .all-users-cotainer{
     display: inline-block;
-    width: 92%;
+    width: 94%;
     height: 100%;
     margin: 0;
 }
@@ -176,8 +176,8 @@ body{
     width: 25%;
     margin-left: 5%;
     text-align: center;
-    margin-top: 5%;
-    margin-bottom: 5%;
+    margin-top: 3%;
+    margin-bottom: 3%;
     position: relative;
 }
 
@@ -428,11 +428,11 @@ p.user-name.truncate {
         font-size: 1.3rem;
     }
     .match-list{
-        height: 89%;
+        height: 90%;
     }
     .arrow-left i,
     .arrow-right i{
-        font-size: 4rem;
+        font-size: 3rem;
     }
 
     .no-goals, .no-users{
