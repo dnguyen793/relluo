@@ -18,8 +18,7 @@ body{
     height: 91%;
     position: relative;
     background-color: #F2F2F2; 
-    overflow-y: auto;
-    
+    overflow-y: auto;    
 }
 /************************************TITLE**********/
 
@@ -124,7 +123,25 @@ body{
     font-weight: 500;
 }
 
+.partner-goal-description{
+    width: 100%;
+    display: inline-flex;
+}
 
+.usernameDiv{
+    width: 25%;
+}
+
+i.material-icons.usericon {
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.actualGoalDiv{
+    display: flex;
+    flex-wrap: wrap;
+    width: 75%;
+}
 
 
 /************************ ALL USERS ***********************/
@@ -152,6 +169,12 @@ body{
     margin: 0;
 }
 
+.selected-users{
+    width: 100%;
+    height: 50%;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+}
+
 .user-names{
     width: 100%;
     display: flex;
@@ -159,6 +182,11 @@ body{
     flex-wrap: wrap;
     justify-content: center;
 
+}
+
+
+.user-names p{
+    width: 100%;
 }
 
 .user-name{
@@ -194,11 +222,10 @@ body{
 .goal-description{
     background-color: rgba(162, 211, 218, 0.5);
     width: 100%;
-    padding: 0% 4%;
+    padding: 4% 5%;
     font-family: 'Roboto', sans-serif;
     hyphens: auto;
     color: white;
-    padding: 5%;
     position: relative;
     top: 0;
     font-size: 1.5rem;
@@ -213,10 +240,6 @@ body{
     width: 100%;
 }
 
-.partner-goal-description{
-    width: 100%;
-    /* box-shadow: inset 0 0 18px #FFE2A8; */
-}
 
 /**********INDIVIDUAL BUTTONS**********/
 

@@ -633,9 +633,34 @@ module.exports = function (app) {
         });
     });
 // ==========END OF USERS THAT MATCHED WITH EACH OTHER===========//
+
+
+// ==========GRAB ALL USERS THAT YOU SELECTED===========//
+app.get("/selected", (req, res, next) => {
+    let user_id = req.session.userId;
+    let query = 'SELECT * FROM ?? WHERE user_id = ?';
+    let inserts = [
+        'interested_matches',
+        user_id
+    ];
+
+    let sql = mysql.format(query, inserts);
+
+    connection.query(sql, (err, results, fields) => {
+        if (err) return next(err);
+
+        const output = {
+            success: true,
+            data: results,
+        };
+        res.json(output);
+    });
+})
+// ==========END ALL USERS THAT MATCHED WITH EACH OTHER===========//
+
+
     //==========POST MATCHES TO MATCHED_USERS===========//
     app.post("/matchedusers", (req, res, next) => {
-        debugger;
         var user_id = req.session.userId;
         var matched_user_id = req.body.matched_user_id;
         console.log(req.body);
