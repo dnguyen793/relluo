@@ -197,29 +197,29 @@ i.material-icons.usericon {
     box-shadow: 2px 0px 15px 5px rgba(255, 255, 255);
 }
 
-.selected-you{
+.selected-you-container{
     width: 100%;
     height: 50%;
     border-bottom: 2px solid rgba(0, 0, 0, 0.5);
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
     overflow-y: auto
 }
 
-.selected-users{
+.selected-users-container{
     width: 100%;
     height: 50%;
+    overflow-y: auto
+}
+
+.selected-you,
+.selected-users{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    overflow-y: auto
 }
 
-.selected-you .header,
-.selected-users .header{
+.selected-you-container .header,
+.selected-users-container .header{
     width: 100%;
     height: 2rem;
     line-height: 2rem;
@@ -231,14 +231,14 @@ i.material-icons.usericon {
     color: rgb(82, 145, 155);
 }
 
-.selected-you .instruction,
-.selected-users .instruction{
+.selected-you-container .instruction,
+.selected-users-container .instruction{
     width: 100%;
     height: 2rem;
     line-height: 2rem;
     text-align: center;
     font-size: 1.3rem;
-    margin: 0.5rem 0;
+    margin: 0.3rem 0;
     color: rgb(82, 145, 155);
 }
 
@@ -271,8 +271,8 @@ i.material-icons.usericon {
 .selection-users-container .message {
     font-family: 'Roboto', sans-serif;
     width: 68%;
-    margin: 8% auto;
-    padding: 5%;
+    margin: 12% auto;
+    padding: 5% 12%;
     background-color: white;
     font-size: 1.5rem;
     text-align: center;

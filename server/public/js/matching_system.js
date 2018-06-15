@@ -421,9 +421,10 @@ function getUsersYouSelected(){
         success: function(resp){
             
             if( !resp.data.length ){
+                $('.selected-users').empty();
                 let message = $("<div>", {
                     class: "message z-depth-1",
-                    text: "No goal-tracking buddy selected Select one under All User"
+                    text: "No goal-tracking buddy Select one under All User"
                 });
 
                 $('.selected-users').append(message);
@@ -441,15 +442,7 @@ function getUsersYouSelected(){
 function renderYourSelectedUsers(usersData){
     console.log('usersData', usersData)
     $('.selected-users').empty();
-    let header = $("<p>" ,{
-        "class": "header",
-        text: "You Selected"
-    })
-    let instruction = $("<p>", {
-        "class": "instruction",
-        text: 'Once they select you back, their name and goals will appear under "Your Match"'
-    });
-    $('.selected-users').append(header, instruction);
+
 
     for(var i=0; i<usersData.length;i++){
 
