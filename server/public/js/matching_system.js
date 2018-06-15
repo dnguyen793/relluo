@@ -15,6 +15,7 @@ function showAllUsers(){
     $(".interested").css("background-color", "rgba(180, 213, 218, 0.5)");
     $(".all").css("background-color", "rgb(242, 197, 118)");
     getData();
+    getUsersYouSelected();
 }
 
 function showInterestedUsers(){
@@ -248,6 +249,7 @@ function renderAllUsers(goals){
     $('.interested-users-cotainer').empty();
     $('.user-names').empty();
     let instruction = $("<p>", {
+        "class": "instruction",
         text: "You can select any of the user to be your goal-tracking buddy"
     });
     $('.user-names').append(instruction);
@@ -392,12 +394,40 @@ function updateUsers(userId, interested_user_id) {
     })
 }
 
+
+
+
 function getUsersYouSelected(){
     $.ajax({
         type: "GET",
         url: "/selected",
         success: function(resp){
-            console.log("resp", resp);
+            console.log("resp", resp.data);
+            
+            if( !resp.data.length ){
+                let message = $("<div>", {
+                    class: "message z-depth-1",
+                    text: "No goal-tracking buddy selected Select one under All User"
+                });
+
+                $('.selected-users').append(message);
+            }
+            else{
+                renderYourSelectedUsers();
+            }
         }
     });
+}
+
+function renderYourSelectedUsers(){
+    $('.selected-users').empty();
+    let instruction = $("<p>", {
+        "class": "instruction",
+        text: 'You\'ve selected the following users. Once they select you back, their name and goals will appear under "Your Match" section.'
+    });
+    $('.selected-users').append(instruction);
+
+
+
+
 }
