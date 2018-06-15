@@ -2,30 +2,46 @@ $(document).ready(initializeApp);
 var matchedUserUsername;
 
 function initializeApp(){
-    matchedUsersCheck();
-    $('.arrow-left').on('click', showAllUsers);
+    showMatchedUsers();
+    $('.arrow-left, .arrow-left > i').on('click', showSelectionPage);
+    $('.arrow-right, .arrow-right > i').on('click', showSelectionPage);
+    $('.selection').on('click', showSelectionPage);
+
+
     $('.all').on('click', showAllUsers);
-    $('.interested').on('click', showInterestedUsers);
-    $('.arrow-right > i').on('click', showInterestedUsers);
+    $('.to-users').on('click', showAllUsers);
+
+    $('.matched').on('click', showMatchedUsers);
+    $('.back-to-match').on('click', showMatchedUsers);
+
+}
+
+function showMatchedUsers(){
+    $(".all-users, .selectionDiv").removeClass('show').addClass('hidden');
+    $(".matched-users").removeClass('hidden').addClass('show');
+    $(".all, .selection").css({"background-color": "rgba(180, 213, 218, 0.5)", "color": "white"});
+    $(".matched").css({"background-color": "rgb(82, 145, 155)", "color": "rgb(242, 197, 118)"});
+    $(".matched-users-cotainer").empty();
+    matchedUsersCheck();
+}
+
+function showSelectionPage(){
+    $('.matched-users, .all-users').removeClass('show').addClass('hidden');
+    $(".selectionDiv").removeClass('hidden').addClass('show');
+    $(".matched, .all").css({"background-color": "rgba(180, 213, 218, 0.5)", "color": "white"});
+    $(".selection").css({"background-color": "rgb(82, 145, 155)", "color": "rgb(242, 197, 118)"});
+    getUsersYouSelected();
+
 }
 
 function showAllUsers(){
-    $('.interested-users').addClass('hidden').removeClass('show');
+    $('.matched-users, .selectionDiv').addClass('hidden').removeClass('show');
     $(".all-users").removeClass('hidden').addClass('show');
-    $(".interested").css("background-color", "rgba(180, 213, 218, 0.5)");
-    $(".all").css("background-color", "rgb(242, 197, 118)");
+    $(".matched, .selection").css({"background-color": "rgba(180, 213, 218, 0.5)", "color": "white"});
+    $(".all").css({"background-color": "rgb(82, 145, 155)", "color": "rgb(242, 197, 118)"});
     getData();
-    getUsersYouSelected();
 }
 
-function showInterestedUsers(){
-    $(".all-users").removeClass('show').addClass('hidden');
-    $(".interested-users").removeClass('hidden').addClass('show');
-    $(".all").css("background-color", "rgba(180, 213, 218, 0.5)");
-    $(".interested").css("background-color", "rgb(242, 197, 118)");
-    $(".no-users-container").empty();
-    matchedUsersCheck();
-}
 
 function matchedUsersCheck(){
     $.ajax({
@@ -106,7 +122,7 @@ function getMatchedUserGoals(data){
                 renderMatchedUserGoalOnDashboard(data.data);
             } else {
                 var p = $("<p>").text("No goals for today").addClass('center no-goals');
-                $(".interested-users-cotainer").append(p);
+                $(".matched-users-cotainer").append(p);
             }
         },
         error: function(xhr, status, err){
@@ -195,7 +211,7 @@ function renderMatchedUserGoalOnDashboard(goals){
         var goalBar = $("<div>").addClass('goal-description partner-goal-description z-depth-3');
 
         let username = $("<div>", {
-            text: matchedUserUsername + " :",
+            text: matchedUserUsername + ":",
             "class": "usernameDiv"
         });
 
@@ -238,7 +254,7 @@ function renderMatchedUserGoalOnDashboard(goals){
 
         goalContainer.append(goalBar);
 
-        $('.interested-users-cotainer').append( goalContainer);
+        $('.matched-users-cotainer').append( goalContainer);
         $('.dropdown-trigger').dropdown();
     }
 }
@@ -246,14 +262,14 @@ function renderMatchedUserGoalOnDashboard(goals){
 
 function renderAllUsers(goals){
     console.log('goals',goals);
-    $('.interested-users-cotainer').empty();
+    $('.matched-users-cotainer').empty();
     $('.user-names').empty();
     let instruction = $("<p>", {
         "class": "instruction",
         text: "You can select any of the user to be your goal-tracking buddy"
     });
     $('.user-names').append(instruction);
-    if($(".interested-users-container").length <= 0){
+    if($(".matched-users-container").length <= 0){
         for(var i=0; i<goals.length;i++){
             //Gets goal description
             let goalDescription = goals[i].username;
@@ -301,7 +317,7 @@ function renderAllUsers(goals){
             goalContainer.append(goalBar, dropDownMenuButtonContainer);
 
             if(goals.length < 10){
-                $('.interested-users-cotainer').append(goalContainer);
+                $('.matched-users-cotainer').append(goalContainer);
             } else {
                 $('.user-names').append(goalContainer);
             }
