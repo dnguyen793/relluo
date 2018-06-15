@@ -656,6 +656,28 @@ app.get("/selected", (req, res, next) => {
         res.json(output);
     });
 })
+
+// ==========GRAB ALL USERS THAT SELECTED YOU ===========//
+app.get("/selectedyou", (req, res, next) => {
+    let user_id = req.session.userId;
+    let query = 'SELECT * FROM ?? WHERE interested_user_id = ?';
+    let inserts = [
+        'interested_matches',
+        user_id
+    ];
+
+    let sql = mysql.format(query, inserts);
+
+    connection.query(sql, (err, results, fields) => {
+        if (err) return next(err);
+
+        const output = {
+            success: true,
+            data: results,
+        };
+        res.json(output);
+    });
+})
 // ==========END ALL USERS THAT MATCHED WITH EACH OTHER===========//
 
 
