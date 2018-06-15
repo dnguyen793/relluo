@@ -402,7 +402,6 @@ function getUsersYouSelected(){
         type: "GET",
         url: "/selected",
         success: function(resp){
-            console.log("resp", resp.data);
             
             if( !resp.data.length ){
                 let message = $("<div>", {
@@ -413,13 +412,17 @@ function getUsersYouSelected(){
                 $('.selected-users').append(message);
             }
             else{
-                renderYourSelectedUsers();
+                renderYourSelectedUsers(resp.data);
             }
+        },
+        error: function(resp){
+            console.log("Error getting selected user");
         }
     });
 }
 
-function renderYourSelectedUsers(){
+function renderYourSelectedUsers(usersData){
+    console.log('usersData', usersData)
     $('.selected-users').empty();
     let instruction = $("<p>", {
         "class": "instruction",
@@ -427,7 +430,22 @@ function renderYourSelectedUsers(){
     });
     $('.selected-users').append(instruction);
 
+    for(var i=0; i<usersData.length;i++){
 
+        //Creates goal container for each goal
+        var userContainer = $('<div>', {
+            "class": "user-container"
+        })
 
+        //Creates a container with the goal description
+        var userBar = $("<div>").addClass('user-description z-depth-1');
+        var userProfile = $("<div>").addClass('profileImg');
+        var img = $("<img>").attr("src", "../images/default-user.png");
+        userProfile.append(img);
+        var user = $("<p>").addClass('user-name truncate').text(usersData[i].username);
+        userBar.append(userProfile, user);
+        userContainer.append(userBar);
 
+        $(".selected-users").append(userContainer);
+    }
 }
