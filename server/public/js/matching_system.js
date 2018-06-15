@@ -264,6 +264,7 @@ function renderAllUsers(goals){
     console.log('goals',goals);
     $('.matched-users-cotainer').empty();
     $('.user-names').empty();
+
     let instruction = $("<p>", {
         "class": "instruction",
         text: "You can select any of the user to be your goal-tracking buddy"
@@ -440,11 +441,15 @@ function getUsersYouSelected(){
 function renderYourSelectedUsers(usersData){
     console.log('usersData', usersData)
     $('.selected-users').empty();
+    let header = $("<p>" ,{
+        "class": "header",
+        text: "You Selected"
+    })
     let instruction = $("<p>", {
         "class": "instruction",
-        text: 'You\'ve selected the following users. Once they select you back, their name and goals will appear under "Your Match" section.'
+        text: 'Once they select you back, their name and goals will appear under "Your Match"'
     });
-    $('.selected-users').append(instruction);
+    $('.selected-users').append(header, instruction);
 
     for(var i=0; i<usersData.length;i++){
 
