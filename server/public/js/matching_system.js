@@ -376,7 +376,7 @@ function sendInterestedMatches(matchedUserId,username) {
 // }
 
 function sendMatchToTable(thisUserId, interested_user_id ) {
-    
+
     let thisuser = thisUserId;
     let interested_user = interested_user_id;
     console.log(thisuser, interested_user);
@@ -390,11 +390,40 @@ function sendMatchToTable(thisUserId, interested_user_id ) {
         success: function (json_data) {
             var data = json_data;
             console.log(data);
+            if(data.success){
             updateUsers(thisuser, interested_user);
+            deleteMatchInterest(thisuser, interested_user)
+            }
+            else{
+                console.log("Error matching");
+            }
+        },
+        error: function(resp){
+            console.log('matching resp', resp);
         }
 
     })
 }
+
+//DELETE ROW FR INTERESTED TABLE AFTER YOU AND YOUR BUDDY MATCHED  
+function deleteMatchInterest(userId, interested_user_id) {
+    $.ajax({
+        type: "POST",
+        url: serverBase+"/interest/delete",
+        data: {
+            user_id: interested_user_id,
+            matched_user_id: userId,
+        },
+        success: function (json_data) {
+            var data = json_data;
+            console.log(data);
+
+        }
+
+    })
+}
+
+
 function updateUsers(userId, interested_user_id) {
     $.ajax({
         type: "POST",

@@ -681,6 +681,30 @@ app.get("/selectedyou", (req, res, next) => {
 // ==========END ALL USERS THAT MATCHED WITH EACH OTHER===========//
 
 
+// ========== DELETE ROW AFTER YOU AND YOUR BUDDY MATCHED ===========//
+app.post("/interest/delete", (req, res, next) => {
+    let user_id = req.body.user_id;
+    let matched_user_id = req.body.matched_user_id;
+    let query = 'DELETE FROM ?? WHERE `user_id` = ? AND `interested_user_id` = ?';
+    let inserts = [
+        'interested_matches',
+        user_id,
+        matched_user_id
+    ];
+
+    let sql = mysql.format(query, inserts);
+
+    connection.query(sql, (err, results, fields) => {
+        if (err) return next(err);
+
+        const output = {
+            success: true,
+            data: results,
+        };
+        res.json(output);
+    });
+})
+
     //==========POST MATCHES TO MATCHED_USERS===========//
     app.post("/matchedusers", (req, res, next) => {
         var user_id = req.session.userId;
