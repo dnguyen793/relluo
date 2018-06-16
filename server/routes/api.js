@@ -453,12 +453,12 @@ module.exports = function (app) {
     //==========END OF GET ALL INTERESTED MATCHES===========//
     //==========GET MATCHED USER GOALS===========//
     app.post('/matched', (req, res, next) => {
-        let query = 'SELECT * FROM ?? WHERE user_id = ? OR matched_user_id = ?';
+        // let query = 'SELECT * FROM ?? WHERE user_id = ? OR matched_user_id = ?';
+        let query = 'SELECT * FROM ?? WHERE user_id = ?';
         let userId = req.session.userId;
         console.log('userID', userId);
         let inserts = [
             'matched_users',
-            userId,
             userId
         ];
 
