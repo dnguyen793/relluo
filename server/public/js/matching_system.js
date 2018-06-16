@@ -9,10 +9,10 @@ function initializeApp(){
 
 
     $('.all').on('click', showAllUsers);
-    $('.to-users').on('click', showAllUsers);
+    $('.to-users, .to-users > i').on('click', showAllUsers);
 
     $('.matched').on('click', showMatchedUsers);
-    $('.back-to-match').on('click', showMatchedUsers);
+    $('.back-to-match, .back-to-match > i').on('click', showMatchedUsers);
 
 }
 
@@ -31,7 +31,7 @@ function showSelectionPage(){
     $(".matched, .all").css({"background-color": "rgba(180, 213, 218, 0.5)", "color": "white"});
     $(".selection").css({"background-color": "rgb(82, 145, 155)", "color": "rgb(242, 197, 118)"});
     getUsersYouSelected();
-
+    getUsersWhoSelectedYou();
 }
 
 function showAllUsers(){
@@ -461,5 +461,85 @@ function renderYourSelectedUsers(usersData){
         userContainer.append(userBar);
 
         $(".selected-users").append(userContainer);
+    }
+}
+
+
+function getUsersWhoSelectedYou(){
+    $.ajax({
+        type: "GET",
+        url: "/selectedyou",
+        success: function(resp){
+            console.log("selected you resp", resp);
+            
+            if( !resp.data.length ){
+                $('.selected-you').empty();
+                let message = $("<div>", {
+                    class: "message z-depth-1",
+                    text: "You haven't get selected Select one under All User"
+                });
+
+                $('.selected-you').append(message);
+            }
+            else{
+                renderUsersThatSelectedYou(resp.data);
+            }
+        },
+        error: function(resp){
+            console.log("Error getting selected user");
+        }
+    });
+}
+
+function renderUsersThatSelectedYou(usersData){
+    console.log('usersData', usersData)
+    $('.selected-you').empty();
+
+
+    for(var i=0; i<usersData.length;i++){
+
+        var userContainer = $('<div>', {
+            "class": "user-container"
+        })
+
+        var userBar = $("<div>").addClass('user-description z-depth-1');
+        var userProfile = $("<div>").addClass('profileImg');
+        var img = $("<img>").attr("src", "../images/default-user.png");
+        userProfile.append(img);
+        var user = $("<p>").addClass('user-name truncate').text(usersData[i].username);
+        userBar.append(userProfile, user);
+        userContainer.append(userBar);
+
+        $(".selected-you").append(userContainer);
+
+        //Creates drop down menu to mark goal as edit or delete
+        var dropDownMenuButtonContainer = $('<div>').addClass('button-container z-depth-2');
+
+        var editButton = $('<button>').addClass('dropdown-button dropdown-trigger goal-button material-icons').attr('data-activates', 'dropdown'+userId).text('menu');
+
+        var dropDownList = $('<ul>').addClass('dropdown-content').attr('id','dropdown'+userId,'username','dropdown'+goalDescription);
+
+        let goalSelector = '#goalId'+goalId;
+
+
+        var editItem = $('<li>').addClass('edit center-align').on('click', ()=>{
+            console.log(goalId);
+            sendInterestedMatches(userId,goalDescription);
+            }
+        ).wrapInner('<a href="#">Select</a>');
+
+        var deleteItem = $('<li>').addClass('delete center').on('click', ()=>{
+            getMatches(userId);
+            console.log(userId);
+            // deleteGoal(goalId);
+            // $(goalSelector).remove();
+        }).wrapInner('<a>Find Match</a>');
+
+        dropDownList.append(editItem, deleteItem);
+
+
+        dropDownMenuButtonContainer.append(editButton,dropDownList);
+
+        goalContainer.append(goalBar, dropDownMenuButtonContainer);
     }
 }

@@ -18,7 +18,7 @@ body{
     height: 91%;
     position: relative;
     background-color: #F2F2F2; 
-    overflow-y: auto;    
+    /* overflow-y: auto;     */
 }
 /************************************TITLE**********/
 
@@ -264,8 +264,9 @@ i.material-icons.usericon {
 .all-users-cotainer{
     display: inline-block;
     width: 94%;
-    height: 100%;
+    height: calc(100% - 5px);
     margin: 0;
+    overflow-y: auto;
 }
 
 .selection-users-container .message {
