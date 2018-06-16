@@ -8,7 +8,6 @@ function initializeApp(){
 function getData(){
     let d = new Date();
     let n = (d.getUTCDate());
-    console.log('n',n)
     let day = n;
     $.ajax({
         type: 'GET',
@@ -21,7 +20,6 @@ function getData(){
             day: day
         },
         success: function(resp){
-            console.log(resp);
             $('.all-goals-list').empty();
 
             if(resp.data.length === 0){
@@ -30,11 +28,9 @@ function getData(){
             else{
                 rendergoalOnDashboard(resp.data)
             }
-            // rendergoalOnDashboard(resp.data)
 
             $('html, body').animate({
                 scrollTop: $('.all-goals-list').offset().top}, 2000)
-            
         },
         error: function(xhr, status, err){
             console.log(err);
@@ -52,10 +48,8 @@ function getData(){
 function editGoal(goalSelected, goalId){
 
     let textToEdit = $(goalSelected).find('.goal-description');
-    
     let currentText = $(goalSelected +'> .goal-description').text();
 
-    console.log('currentText', currentText);
     $(goalSelected +'> .goal-description').text('');
 
     $(`<input class='center' type='text' value='${currentText}'>`).css({
@@ -132,7 +126,6 @@ function editGoal(goalSelected, goalId){
 }
 
 function deleteGoal(goalId){
-    console.log('goalID', goalId);
     $.ajax({
         type: 'POST',
         data: {
@@ -142,7 +135,6 @@ function deleteGoal(goalId){
         // dataType: 'json',
         
         success: function(resp){
-            console.log('delete',resp);
             setTimeout(()=>{
                 $('.goal-list').empty();
                 getData()
@@ -158,59 +150,7 @@ function deleteGoal(goalId){
     })
 }
 
-// ***************** TESTING *************************
-// var object = [
-//     {
-//         goal: 'make it work make it work make it work make it work make it work make it work make it work make it work make it work make it work',
-//         goal_id: 88,
-//         day: 6,
-//         timeframe: 2
-//     },
-    // {
-    //     goal: 'make $$$$$$$$$$$$$$$$$$$$$$$',
-    //     goal_id: 8,
-    //     day: 2,
-    //     timeframe: 1
-    // },
-    // {
-    //     goal: 'make it work',
-    //     goal_id: 18,
-    //     day: 5,
-    //     timeframe: 2
-    // },
-    // {
-    //     goal: 'make $$$$$$$$$$$$$$$$$$$$$$$',
-    //     goal_id: 8,
-    //     day: 2,
-    //     timeframe: 1
-    // },
-    // {
-    //     goal: 'make it work make it work make it work',
-    //     goal_id: 10,
-    //     day: 4,
-    //     timeframe: 2
-    // },
-    // {
-    //     goal: 'make $$$$$$$$$$$$$$$$$$$$$$$',
-    //     goal_id: 8,
-    //     day: 5,
-    //     timeframe: 2
-    // },
-    // {
-    //     goal: 'make it work make it work make it work',
-    //     goal_id: 88,
-    //     day: 2,
-    //     timeframe: 1
-    // }
-// ]
-
-// rendergoalOnDashboard(object);
-
-// ***************************************************
-
-
 function rendergoalOnDashboard(goals){
-    console.log('goals',goals)
     var users = []
 
     if(goals.length !== 0){
@@ -273,43 +213,22 @@ function rendergoalOnDashboard(goals){
             $(goalSelector).addClass('animated bounceOutDown');
             deleteGoal(goalId);
        }).wrapInner('<a>Delete</a>')
-
         
         dropDownList.append(editItem, deleteItem);
-
-
         dropDownMenuButtonContainer.append(editButton,dropDownList);
         goalContainer.append(imageContainer);
         goalContainer.append(dayNameContainer);
         
         goalContainer.append(goalBar, dropDownMenuButtonContainer);
         $('.all-goals-list').append(goalContainer);
-        
-
-        
+ 
         $('.dropdown-trigger').dropdown();
              
     }
-
-    //Transitions background color if proceeeding background color is different: creates gradient
-
-    // for(var j=1; j<goals.length; j++){
-    //     let initialChildElement = $('.goal-container:nth-child(' +j+')');
-    //     let nextChildElement = $('.goal-container:nth-child(' +(j+1)+')');
-    //     if(initialChildElement.css('background-color') !== nextChildElement.css('background-color')){
-    //         let currentBackgroundColor = initialChildElement.css('background-color');
-    //         let nextBackgroundColor = nextChildElement.css('background-color');
-            
-    //         initialChildElement.css('background', `linear-gradient(${currentBackgroundColor},${nextBackgroundColor})`);
-
-    //     }
-        
-    // }
 }
 
 function displayDate(){
     let todayDate = getTodayDate();
-    console.log('today',todayDate);
     
     $('.date').text(todayDate);
 }

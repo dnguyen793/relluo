@@ -172,7 +172,6 @@ function checkForInterestedMatches(){
         success: function(resp){
             if(resp.data[0] !== undefined){
                 $('.all-goals-list').empty();
-                debugger;
                 renderAllUsers(resp.data)
             } else {
                 // getData();
@@ -211,8 +210,6 @@ function getData(category){
                 var p = $("<p>").text("No users ready to match").addClass("center no-users");
                 $(".no-users-container").append(p);
             }
-
-
         },
         error: function(xhr, status, err){
             console.log(err)
@@ -225,14 +222,14 @@ function renderMatchedUserGoalOnDashboard(goals){
     for(var i=0; i<goals.length;i++){
         users.push(goals[i]);
         //Gets goal description
-        var goalDescription = goals[i].goal;
+        let goalDescription = goals[i].goal;
         let goalId = goals[i].goal_id;
         let userId =goals[i].user_id;
         //Creates goal container for each goal
-        var goalContainer = $('<div>').addClass('goal-container-goals goal').attr('id','goalId'+goalId);
+        let goalContainer = $('<div>').addClass('goal-container-goals goal').attr('id','goalId'+goalId);
 
         //Creates a container with the goal description
-        var goalBar = $("<div>").addClass('goal-description partner-goal-description z-depth-3');
+        let goalBar = $("<div>").addClass('goal-description partner-goal-description z-depth-3');
 
         let username = $("<div>", {
             text: matchedUserUsername + ":",
