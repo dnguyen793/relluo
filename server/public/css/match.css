@@ -18,8 +18,7 @@ body{
     height: 91%;
     position: relative;
     background-color: #F2F2F2; 
-    overflow-y: auto;
-    
+    /* overflow-y: auto;     */
 }
 /************************************TITLE**********/
 
@@ -53,15 +52,24 @@ body{
     background-color: rgba(162, 211, 218, 0.8);
 }
 
-.interested,
-.all{
+.matched,
+.all,
+.selection{
     width: 50%;
     background-color: rgba(162, 211, 218, 0.5);
     cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 500;
+    line-height: 24px;
+}
+.matched,
+.selection{
+    border-right: 1px solid white;
 }
 
-.interested{
-    background-color: rgb(242, 197, 118); 
+.matched{
+    background-color: rgb(82, 145, 155);
+    color: rgb(242, 197, 118);
 }
 
 /************************************MATCH SECTION **********/
@@ -74,15 +82,16 @@ body{
     width: 100%;
 }
 
-.interested-users,
-.all-users{
+.matched-users,
+.all-users,
+.selectionDiv{
     width: 100%;
     height: 100%;
 }
 
-/************************ INTERESTED USERS ***********************/
+/************************ MATCHED USERS ***********************/
 
-.interested-users-cotainer{
+.matched-users-cotainer{
     display: inline-block;
     width: 94%;
     height: 100%;
@@ -124,7 +133,114 @@ body{
     font-weight: 500;
 }
 
+.partner-goal-description{
+    width: 100%;
+    display: inline-flex;
+}
 
+.usernameDiv{
+    width: 25%;
+}
+
+i.material-icons.usericon {
+    vertical-align: top;
+    margin-right: 3px;
+}
+
+.actualGoalDiv{
+    display: flex;
+    flex-wrap: wrap;
+    width: 75%;
+    padding-left: 5px;
+}
+
+/************************  SELECTION ***********************/
+
+.selection-users-container{
+    display: inline-block;
+    width: 89%;
+    height: 100%;
+    margin: 0;
+}
+
+.back-to-match{
+    width: 5%;
+    height: 100%;
+    margin: 0;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.back-to-match i{
+    cursor: pointer;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 50%;
+    font-size: 4rem;
+    box-shadow: 2px 0px 15px 5px rgba(255, 255, 255);
+}
+
+.to-users{
+    width: 5%;
+    height: 100%;
+    margin: 0;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.to-users i{
+    cursor: pointer;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 50%;
+    font-size: 3rem;
+    box-shadow: 2px 0px 15px 5px rgba(255, 255, 255);
+}
+
+.selected-you-container{
+    width: 100%;
+    height: 50%;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+    overflow-y: auto
+}
+
+.selected-users-container{
+    width: 100%;
+    height: 50%;
+    overflow-y: auto
+}
+
+.selected-you,
+.selected-users{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.selected-you-container .header,
+.selected-users-container .header{
+    width: 100%;
+    height: 2rem;
+    line-height: 2rem;
+    text-align: center;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin: 0.8rem 0;
+    color: rgb(82, 145, 155);
+}
+
+.selected-you-container .instruction,
+.selected-users-container .instruction{
+    width: 100%;
+    height: 2rem;
+    line-height: 2rem;
+    text-align: center;
+    font-size: 1.3rem;
+    margin: 0.3rem 0;
+    color: rgb(82, 145, 155);
+}
 
 
 /************************ ALL USERS ***********************/
@@ -148,8 +264,44 @@ body{
 .all-users-cotainer{
     display: inline-block;
     width: 94%;
-    height: 100%;
+    height: calc(100% - 5px);
     margin: 0;
+    overflow-y: auto;
+}
+
+.selection-users-container .message {
+    font-family: 'Roboto', sans-serif;
+    width: 68%;
+    margin: 12% auto;
+    padding: 5% 12%;
+    background-color: white;
+    font-size: 1.5rem;
+    text-align: center;
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: 1.7;
+}
+
+.user-container{
+    width: 19%;
+    margin-left: 4%;
+    text-align: center;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    position: relative;
+}
+
+.user-description {
+    /* background-color: rgba(162, 211, 218, 0.5); */
+    background-color: rgba(242, 197, 118, 0.6);
+    width: 100%;
+    padding: 4% 5%;
+    font-family: 'Roboto', sans-serif;
+    hyphens: auto;
+    color: white;
+    position: relative;
+    top: 0;
+    font-size: 1.5rem;
 }
 
 .user-names{
@@ -158,11 +310,18 @@ body{
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+}
 
+
+.user-names .instruction{
+    width: 100%;
+    font-size: 1.3rem;
+    font-weight: 500;
+    text-align: center;
 }
 
 .user-name{
-    margin-top: 10px;
+    margin-top: 1px;
     margin-bottom: 0;
     font-size: 1.3rem;
     color: black;
@@ -174,7 +333,7 @@ body{
 /**********INDIVIDUAL MATCHES**********/
 .goal-container{
     width: 25%;
-    margin-left: 5%;
+    margin-left: 4%;
     text-align: center;
     margin-top: 3%;
     margin-bottom: 3%;
@@ -185,8 +344,8 @@ body{
     width: 90%;
     margin-left: 9%;
     text-align: center;
-    margin-top: 5%;
-    margin-bottom: 5%;
+    margin-top: 4%;
+    margin-bottom: 4%;
     position: relative;
 }
 
@@ -194,14 +353,15 @@ body{
 .goal-description{
     background-color: rgba(162, 211, 218, 0.5);
     width: 100%;
-    padding: 0% 4%;
+    padding: 4% 5%;
     font-family: 'Roboto', sans-serif;
     hyphens: auto;
-    color: white;
-    padding: 5%;
+    /* color: white; */
+    color: rgba(0,0,0,0.8);
     position: relative;
     top: 0;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
+    font-weight: 600;
 }
 
 .profileImg{
@@ -213,10 +373,6 @@ body{
     width: 100%;
 }
 
-.partner-goal-description{
-    width: 100%;
-    /* box-shadow: inset 0 0 18px #FFE2A8; */
-}
 
 /**********INDIVIDUAL BUTTONS**********/
 
@@ -338,7 +494,9 @@ p.user-name.truncate {
         height: 94%;
     }
     .arrow-left i,
-    .arrow-right i{
+    .to-users i,
+    .arrow-right i,
+    .back-to-match i{
         font-size: 2rem;
     }
 
@@ -384,7 +542,9 @@ p.user-name.truncate {
         height: 87%;
     }
     .arrow-left i,
-    .arrow-right i{
+    .to-users i,
+    .arrow-right i,
+    .back-to-match i{
         font-size: 3rem;
     }
 
@@ -398,7 +558,8 @@ p.user-name.truncate {
         height: 4.5rem;
     }
     .footer-items a i,
-    .arrow-right i {
+    .arrow-right i,
+    .back-to-match i {
         font-size: 2.2rem;
         height: 40px;
         line-height: 40px;
@@ -431,7 +592,9 @@ p.user-name.truncate {
         height: 90%;
     }
     .arrow-left i,
-    .arrow-right i{
+    .to-users i,
+    .arrow-right i,
+    .back-to-match i{
         font-size: 3rem;
     }
 
