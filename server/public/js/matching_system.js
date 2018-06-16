@@ -350,45 +350,47 @@ function sendInterestedMatches(matchedUserId,username) {
     })
 }
 
-function getMatches(matchedUserId) {
+// get the users id of the user and their selected user to send to the match table
+// function getMatches(matchedUserId) {
+//     debugger;
     
-    console.log(matchedUserId);
-    $.ajax({
-        type: "POST",
-        url: serverBase+"/matchingpairs",
-        // dataType: "json",
-        data: {
-            matchedUserId: matchedUserId,
-        },
-        success: function (json_data) {
-            var data = json_data;
-            console.log(data);
-            if(data.data[0]){
-                console.log(data);
-                sendMatchToTable(data);
-            }
-            // sendMatchToTable(data);
-        }
+//     console.log(matchedUserId);
+//     $.ajax({
+//         type: "POST",
+//         url: serverBase+"/matchingpairs",
+//         // dataType: "json",
+//         data: {
+//             matchedUserId: matchedUserId,
+//         },
+//         success: function (json_data) {
+//             var data = json_data;
+//             console.log(data);
+//             if(data.data[0]){
+//                 console.log(data);
+//                 sendMatchToTable(data);
+//             }
+//             // sendMatchToTable(data);
+//         }
 
-    })
-}
+//     })
+// }
 
-function sendMatchToTable(data) {
-    console.log(data);
-    let userId = data.data[0].user_id;
-    let interested_user_id = data.data[0].user_id2;
-    console.log(userId, interested_user_id);
+function sendMatchToTable(thisUserId, interested_user_id ) {
+    
+    let thisuser = thisUserId;
+    let interested_user = interested_user_id;
+    console.log(thisuser, interested_user);
     $.ajax({
         type: "POST",
         url: serverBase+"/matchedusers",
         data: {
-            user_id: userId,
-            matched_user_id: interested_user_id,
+            user_id: thisuser,
+            matched_user_id: interested_user,
         },
         success: function (json_data) {
             var data = json_data;
             console.log(data);
-            updateUsers(userId, interested_user_id);
+            updateUsers(thisuser, interested_user);
         }
 
     })
@@ -495,12 +497,11 @@ function renderUsersThatSelectedYou(usersData){
     console.log('usersData', usersData)
     $('.selected-you').empty();
 
-
     for(var i=0; i<usersData.length;i++){
+        var thisUser = usersData[i].interested_user_id;
+        var selectedUser = usersData[i].user_id;
 
-        var userContainer = $('<div>', {
-            "class": "user-container"
-        })
+        var userContainer = $('<div>').addClass('user-container').attr('id','goalId'+usersData[i].user_id,'username','username'+usersData[i].username);
 
         var userBar = $("<div>").addClass('user-description z-depth-1');
         var userProfile = $("<div>").addClass('profileImg');
@@ -508,38 +509,30 @@ function renderUsersThatSelectedYou(usersData){
         userProfile.append(img);
         var user = $("<p>").addClass('user-name truncate').text(usersData[i].username);
         userBar.append(userProfile, user);
-        userContainer.append(userBar);
+        // userContainer.append(userBar);
 
-        $(".selected-you").append(userContainer);
 
         //Creates drop down menu to mark goal as edit or delete
         var dropDownMenuButtonContainer = $('<div>').addClass('button-container z-depth-2');
 
-        var editButton = $('<button>').addClass('dropdown-button dropdown-trigger goal-button material-icons').attr('data-activates', 'dropdown'+userId).text('menu');
+        var editButton = $('<button>').addClass('dropdown-button dropdown-trigger goal-button material-icons').attr('data-activates', 'dropdown'+usersData[i].user_id).text('menu');
 
-        var dropDownList = $('<ul>').addClass('dropdown-content').attr('id','dropdown'+userId,'username','dropdown'+goalDescription);
-
-        let goalSelector = '#goalId'+goalId;
-
+        var dropDownList = $('<ul>').addClass('dropdown-content').attr('id','dropdown'+usersData[i].user_id,'username', 'dropdown'+usersData[i].username);
 
         var editItem = $('<li>').addClass('edit center-align').on('click', ()=>{
-            console.log(goalId);
-            sendInterestedMatches(userId,goalDescription);
+            sendMatchToTable(thisUser, selectedUser )
             }
-        ).wrapInner('<a href="#">Select</a>');
+        ).wrapInner('<a>Select</a>');
 
-        var deleteItem = $('<li>').addClass('delete center').on('click', ()=>{
-            getMatches(userId);
-            console.log(userId);
-            // deleteGoal(goalId);
-            // $(goalSelector).remove();
-        }).wrapInner('<a>Find Match</a>');
 
-        dropDownList.append(editItem, deleteItem);
+        dropDownList.append(editItem);
 
 
         dropDownMenuButtonContainer.append(editButton,dropDownList);
 
-        goalContainer.append(goalBar, dropDownMenuButtonContainer);
+        userContainer.append(userBar, dropDownMenuButtonContainer);
+        $(".selected-you").append(userContainer);
+        $('.dropdown-trigger').dropdown();
+
     }
 }
