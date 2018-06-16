@@ -313,7 +313,7 @@ i.material-icons.usericon {
 }
 
 
-.user-names .instruction{
+.all-users-cotainer .instruction{
     width: 100%;
     font-size: 1.3rem;
     font-weight: 500;
@@ -474,7 +474,10 @@ p.user-name.truncate {
     overflow-x: hidden;
 }
 
-
+.noClick{
+    pointer-events: none;
+    background-color: gray;
+}
 
 /**************************************************************/
 /************************* Responsive *************************/
