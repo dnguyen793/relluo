@@ -10,6 +10,8 @@ html{
 body{
     height: 100%;
     min-height: 100%;
+    max-width: 600px;
+    margin: 0 auto;
     background-color: #F2F2F2;
 }
 
@@ -143,7 +145,7 @@ body{
 }
 
 i.material-icons.usericon {
-    vertical-align: top;
+    vertical-align: text-top;
     margin-right: 3px;
 }
 
@@ -264,7 +266,7 @@ i.material-icons.usericon {
 .all-users-cotainer{
     display: inline-block;
     width: 94%;
-    height: calc(100% - 5px);
+    height: calc(100% - 3px);
     margin: 0;
     overflow-y: auto;
 }
@@ -482,6 +484,9 @@ p.user-name.truncate {
 /**************************************************************/
 /************************* Responsive *************************/
 @media only screen and (min-width : 320px) {
+    body{
+        min-width: 320px;
+    }
 
     .title-bar {
         height: 3rem;
@@ -521,21 +526,29 @@ p.user-name.truncate {
         margin: 0.5rem 0 0.1rem 0;
     }
     .selected-you-container .instruction, .selected-users-container .instruction {
-        font-size: 1.1rem;
+        font-size: 1.05rem;
         margin: 0.1rem 0;
     }
     .selection-users-container .message {
         width: 75%;
         margin: 10% auto;
-        padding: 5% 5%;
+        padding: 3% 4%;
         font-size: 1.3rem;
-        line-height: 1.7;
+        line-height: 1.5;
     }
+
+    .selected-users {
+        margin-top: 2.5rem;
+    }
+    .user-container {
+        width: 23%;
+    }
+
     .arrow-left i,
     .to-users i,
     .arrow-right i,
     .back-to-match i{
-        font-size: 2rem;
+        font-size: 1.7rem;
     }
 
     .no-goals, .no-users{
@@ -572,21 +585,69 @@ p.user-name.truncate {
         height: 86%;
     }
     .matchedUser {
-        height: 1.5rem;
+        height: 1.7rem;
         font-size: 0.9rem;
         padding-top: 2px;
     }
-    .goal-list{
-        height: 94%;
-    }
+
     .match-list{
-        height: 87%;
+        height: 76%;
     }
+
+    .matched, .all, .selection {
+        line-height: 19px;
+    }
+    .actualGoalDiv {
+        font-size: 1.3rem;
+    }
+    .usernameDiv {
+        font-size: 1.3rem;
+    }
+    i.material-icons.usericon{
+        font-size: 1.4rem;
+    }
+    .match-container {
+        height: 93%;
+    }
+
+    .matchedUser {
+        height: 2rem;
+        font-size: 1rem;
+        padding-top: 2px;
+    }
+
+    .selection-users-container {
+        width: 88%;
+    }
+    .selected-you-container .header, .selected-users-container .header {
+        /* line-height: 2rem; */
+        font-size: 1.3rem;
+        margin: 0.5rem 0 0.1rem 0;
+    }
+    .selected-you-container .instruction, .selected-users-container .instruction {
+        font-size: 1.05rem;
+        margin: 0.1rem 0;
+    }
+    .selection-users-container .message {
+        width: 75%;
+        margin: 1% auto;
+        padding: 3% 4%;
+        font-size: 1.3rem;
+        line-height: 1.5;
+    }
+
+    .selected-users {
+        margin-top: 0.5rem;
+    }
+    .user-container {
+        width: 23%;
+    }
+
     .arrow-left i,
     .to-users i,
     .arrow-right i,
     .back-to-match i{
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
 
     .no-goals, .no-users{
@@ -598,9 +659,7 @@ p.user-name.truncate {
     .footer-container{
         height: 4.5rem;
     }
-    .footer-items a i,
-    .arrow-right i,
-    .back-to-match i {
+    .footer-items a i{
         font-size: 2.2rem;
         height: 40px;
         line-height: 40px;
@@ -631,7 +690,8 @@ p.user-name.truncate {
     .actualGoalDiv {
         font-size: 1.6rem;
     }
-    .actualGoalDiv {
+
+    .usernameDiv {
         font-size: 1.6rem;
     }
     i.material-icons.usericon{
@@ -665,6 +725,12 @@ p.user-name.truncate {
         padding: 5% 12%;
         font-size: 1.5rem;
         line-height: 1.7;
+    }
+    .selected-users {
+        margin-top: 0.1rem;
+    }
+    .user-container {
+        width: 19%;
     }
     .arrow-left i,
     .to-users i,

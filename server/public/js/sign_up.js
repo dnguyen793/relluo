@@ -70,10 +70,10 @@ function getUsernameInput() {
     $('.usernameInput').on('keyup', function (event) {
         username = event.target.value;
 
-        if( username.length < 8 ){
+        if( username.length < 5 ){
 
 
-            var text = 'Username must contain at least 8 characters';
+            var text = 'Username must contain at least 5 characters';
 
             messageForInvalidInput( usrnameInput, parent, child , text);
         }
@@ -87,10 +87,10 @@ function getUsernameInput() {
     });
 
     $('.usernameInput').on('focusout', function () {
-        if( username.length < 8 ){
+        if( username.length < 5 ){
 
 
-            var text = 'Username must contain at least 8 characters';
+            var text = 'Username must contain at least 5 characters';
 
             messageForInvalidInput( usrnameInput, parent, child , text);
         }
@@ -199,7 +199,7 @@ function sendData(email, username, password) {
 
 function handleSignUpBtnClick() {
 
-    if( userEmail === undefined || userName === undefined || userPwd === undefined || userName.length < 8 || userPwd.length < 8 || invalidEmail ){
+    if( userEmail === undefined || userName === undefined || userPwd === undefined || userName.length < 5 || userPwd.length < 8 || invalidEmail ){
         $('.message span').text("Please correct the error/errors above and try again").addClass('invalidInput');
         setInterval( () => {
             $('.message span').text('');

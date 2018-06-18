@@ -484,7 +484,7 @@ function getUsersWhoSelectedYou(){
                 $('.selected-you').empty();
                 let message = $("<div>", {
                     class: "message z-depth-1",
-                    text: "You haven't get selected Select one under All User"
+                    text: "You haven't been selected... Select one under All User"
                 });
 
                 $('.selected-you').append(message);

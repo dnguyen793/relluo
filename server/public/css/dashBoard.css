@@ -10,7 +10,9 @@ html{
 body{
     height: 100%;
     min-height: 100%;
-    min-width: 330px;
+    /* min-width: 320px; */
+    max-width: 600px;
+    margin: 0 auto;
     background-color: #F2F2F2;
 }
 
@@ -45,7 +47,7 @@ body{
     letter-spacing: 2px;
     text-align: center;
     border-bottom: 1px solid black;
-    padding-bottom: 23px;
+    /* padding-bottom: 23px; */
 }
 
 /************************************ MESSAGE SECTION **********/
@@ -269,7 +271,7 @@ nav ul li{
         padding-top: 0%;
     }
     .date {
-        height: 1rem;
+        height: 1.5rem;
         font-size: 0.8rem;
         padding-top: 2px;
     }
