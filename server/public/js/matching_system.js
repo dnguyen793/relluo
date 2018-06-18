@@ -3,16 +3,16 @@ var matchedUserUsername;
 
 function initializeApp(){
     showMatchedUsers();
-    $('.arrow-left, .arrow-left > i').on('click', showSelectionPage);
-    $('.arrow-right, .arrow-right > i').on('click', showSelectionPage);
+    $('.arrow-left').on('click', showSelectionPage);
+    $('.arrow-right').on('click', showSelectionPage);
     $('.selection').on('click', showSelectionPage);
 
 
     $('.all').on('click', showAllUsers);
-    $('.to-users, .to-users > i').on('click', showAllUsers);
+    $('.to-users').on('click', showAllUsers);
 
     $('.matched').on('click', showMatchedUsers);
-    $('.back-to-match, .back-to-match > i').on('click', showMatchedUsers);
+    $('.back-to-match').on('click', showMatchedUsers);
 
 }
 
@@ -118,6 +118,7 @@ function getMatchedUserGoals(data){
             day: day,
         },
         success: function(data){
+
             if(data.data[0]){
                 $('.all-goals-list').empty();
                 renderMatchedUserGoalOnDashboard(data.data);
