@@ -88,6 +88,7 @@ body{
     font-family: 'Roboto', sans-serif;
     text-align: center;
     color: rgba(0, 0, 0, 0.5);
+    margin-top: 0px;
 }
 
 .categoryContainer p{
@@ -231,7 +232,7 @@ body{
     background-color: #F2F2F2;
     padding: 0 20px;
     color: rgba(0, 0, 0, 0.2);
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: bolder;
 }
 
@@ -584,7 +585,7 @@ footer.page-footer{
     }
     .horizontalLine h3 span {
         padding: 0 10px;
-        font-size: 1.3rem;
+        font-size: 1.5rem;
     }
     .horizontalLine h6 i {
         font-size: 3rem;
@@ -762,7 +763,7 @@ footer.page-footer{
     }
     .horizontalLine h3 span {
         padding: 0 20px;
-        font-size: 1.5rem;
+        font-size: 2rem;
     }
     .horizontalLine h6 i {
         font-size: 4rem;

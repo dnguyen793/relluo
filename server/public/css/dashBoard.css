@@ -337,6 +337,9 @@ nav ul li{
     .message p {
         font-size: 1.2rem;
     }
+    .message {
+        margin: 5% auto 0;
+    }
     .serverErr{
         height: 2rem;
         font-size: 1.3rem; 
@@ -362,7 +365,7 @@ nav ul li{
         padding: 2% 4% 2% 7%;
     }
     .goal-list{
-        height: 89%;
+        height: 79%;
     }
     i.material-icons.shadow{
         font-size: 20px;
@@ -403,6 +406,9 @@ nav ul li{
     .serverErr{
         height: 2.5rem;
         font-size: 1.5rem; 
+    }
+    .message {
+        margin: 15% auto 0;
     }
     .button-container > .dropdown-content li {
         text-align: center;
