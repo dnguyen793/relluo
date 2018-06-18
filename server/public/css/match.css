@@ -221,7 +221,7 @@ i.material-icons.usericon {
 .selected-you-container .header,
 .selected-users-container .header{
     width: 100%;
-    height: 2rem;
+    /* height: 2rem; */
     line-height: 2rem;
     text-align: center;
     font-size: 1.6rem;
@@ -488,13 +488,48 @@ p.user-name.truncate {
         font-size: 1.8rem;
         padding-top: 0%;
     }
+    .matched, .all, .selection {
+        line-height: 19px;
+    }
+    .actualGoalDiv {
+        font-size: 1.3rem;
+    }
+    .usernameDiv {
+        font-size: 1.3rem;
+    }
+    i.material-icons.usericon{
+        font-size: 1.4rem;
+    }
+    .match-container {
+        height: 93%;
+    }
+
     .matchedUser {
         height: 2rem;
         font-size: 1rem;
         padding-top: 2px;
     }
     .match-list{
-        height: 94%;
+        height: 89%;
+    }
+    .selection-users-container {
+        width: 88%;
+    }
+    .selected-you-container .header, .selected-users-container .header {
+        /* line-height: 2rem; */
+        font-size: 1.3rem;
+        margin: 0.5rem 0 0.1rem 0;
+    }
+    .selected-you-container .instruction, .selected-users-container .instruction {
+        font-size: 1.1rem;
+        margin: 0.1rem 0;
+    }
+    .selection-users-container .message {
+        width: 75%;
+        margin: 10% auto;
+        padding: 5% 5%;
+        font-size: 1.3rem;
+        line-height: 1.7;
     }
     .arrow-left i,
     .to-users i,
@@ -532,6 +567,9 @@ p.user-name.truncate {
         height: 3rem;
         font-size: 2rem;
         padding-top: 0%;
+    }
+    .match-container {
+        height: 86%;
     }
     .matchedUser {
         height: 1.5rem;
@@ -586,13 +624,47 @@ p.user-name.truncate {
         height: 5rem;
         font-size: 3rem;
     }
-    
+
+    .matched, .all, .selection {
+        line-height: 24px;
+    }
+    .actualGoalDiv {
+        font-size: 1.6rem;
+    }
+    .actualGoalDiv {
+        font-size: 1.6rem;
+    }
+    i.material-icons.usericon{
+        font-size: 1.8rem;
+    }
+    .match-container {
+        height: 91%;
+    }
     .matchedUser {
         height: 2.5rem;
         font-size: 1.3rem;
     }
     .match-list{
         height: 90%;
+    }
+    .selection-users-container {
+        width: 89%;
+    }
+    .selected-you-container .header, .selected-users-container .header {
+        line-height: 2rem;
+        font-size: 1.6rem;
+    }
+
+    .selected-you-container .instruction, .selected-users-container .instruction {
+        font-size: 1.3rem;
+        margin: 0.3rem 0;
+    }
+    .selection-users-container .message {
+        width: 68%;
+        margin: 12% auto;
+        padding: 5% 12%;
+        font-size: 1.5rem;
+        line-height: 1.7;
     }
     .arrow-left i,
     .to-users i,

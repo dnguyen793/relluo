@@ -102,8 +102,7 @@ function convertToDayOfWeek( day ) {
 function getData(){
     let d = new Date();
     let n = (d.getUTCDay());
-    console.log('n',n)
-    console.log
+
     $.ajax({
         type: 'POST',
         url:  serverBase+'/goalssqlday',
@@ -111,8 +110,6 @@ function getData(){
             day:n
         },
         success: function(resp){
-            console.log('server resp:',resp);
-            console.log('server data:', resp.data.length);
             if(resp.data.length === 0){
                 $(".message").removeClass('hidden');
             }
@@ -179,14 +176,11 @@ function renderGoalOnDashboard(goals){
         goalSelector = '#goalId'+goalId;
         var completeItem = $('<li>').addClass('complete center-align').on('click', ()=>{
             completeGoal(goalId,goals);
-            // $(goalSelector).addClass('animated bounceOutLeft');
-            // setTimeout((()=>{$(goalSelector).remove()}), 500);
-                }).wrapInner('<a href="#!">Did it</a>');
+
+        }).wrapInner('<a href="#!">Did it</a>');
 
         var exitItem = $('<li>').addClass('center-align').on('click', ()=>{
             incompleteGoal(goalId,goals);
-            // $(goalSelector).addClass('animated bounceOutLeft');
-            // setTimeout((()=>{$(goalSelector).remove()}), 500);
         }).wrapInner('<a href="#!">Dismiss</a>');
 
         dropDownList.append(completeItem, exitItem);
@@ -196,23 +190,6 @@ function renderGoalOnDashboard(goals){
         $('.goal-list').append(goalContainer);
         $('.dropdown-trigger').dropdown();
     }
-    // for(var j=1; j<=goals.length; j++){
-    //     let initialChildElement = $('.goal-container:nth-child(' +j+')');
-    //     let nextChildElement = $('.goal-container:nth-child(' +(j+1)+')');
-    //     if(initialChildElement.css('background-color') !== nextChildElement.css('background-color')){
-    //         let currentBackgroundColor = initialChildElement.css('background-color');
-    //         let nextBackgroundColor = nextChildElement.css('background-color');
-
-    //         initialChildElement.css('background', `linear-gradient(${currentBackgroundColor},${nextBackgroundColor})`);
-    //         //nextChildElement.css('background', `linear-gradient(${nextBackgroundColor},${currentBackgroundColor})`);
-    //     }
-    //     if(nextChildElement.length === 0) {
-    //         let currentBackgroundColor = initialChildElement.css('background-color');
-    //         initialChildElement.css('background', `linear-gradient(${currentBackgroundColor}, #F2F2F2)`);
-
-    //     }
-
-    // }
 }
 
 /***************************************************************************************************
@@ -223,11 +200,9 @@ function completeGoal(goalId, goals) {
         if(goals[i].goal_id === goalId){
             var goalstat = goals[i].stats;
             goalstat++;
-            console.log(goalstat, goalId)
         }
     }
-    console.log(goalId);
-    console.log("This is the goals" + goals);
+
     $.ajax({
         type: "POST",
         url: "/goals/update/complete",
@@ -241,7 +216,6 @@ function completeGoal(goalId, goals) {
             setTimeout((()=>{$(goalSelector).remove()}), 500);
         },
         error: function(message){
-            console.log('theres an error');
             $(".serverErr").text("Error completing goal!");
             setTimeout(function(){
                 $(".serverErr").text("");
@@ -255,11 +229,8 @@ function incompleteGoal(goalId, goals) {
         if(goals[i].goal_id === goalId){
             var goalstat = goals[i].stats;
             goalstat++;
-            console.log(goalstat, goalId)
         }
     }
-    console.log(goalId);
-    console.log("This is the goals" + goals);
     $.ajax({
         type: "POST",
         url: "/goals/update/incomplete",

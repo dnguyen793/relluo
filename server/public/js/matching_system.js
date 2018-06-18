@@ -3,16 +3,16 @@ var matchedUserUsername;
 
 function initializeApp(){
     showMatchedUsers();
-    $('.arrow-left, .arrow-left > i').on('click', showSelectionPage);
-    $('.arrow-right, .arrow-right > i').on('click', showSelectionPage);
+    $('.arrow-left').on('click', showSelectionPage);
+    $('.arrow-right').on('click', showSelectionPage);
     $('.selection').on('click', showSelectionPage);
 
 
     $('.all').on('click', showAllUsers);
-    $('.to-users, .to-users > i').on('click', showAllUsers);
+    $('.to-users').on('click', showAllUsers);
 
     $('.matched').on('click', showMatchedUsers);
-    $('.back-to-match, .back-to-match > i').on('click', showMatchedUsers);
+    $('.back-to-match').on('click', showMatchedUsers);
 
 }
 
@@ -52,7 +52,6 @@ function matchedUsersCheck(){
         crossDomain: true,
         cache: false,
         success: function(data){
-        console.log("matched users", data);
 
             if(data.success){
                 for(let i = 0; i<data.data.length; i++){
@@ -72,7 +71,6 @@ function matchedUsersCheck(){
 }
 
 function getMatchedUsername(data){
-    console.log("matched users", data);
     let matchedUser = data.matched_user_id;
     let userId = data.user_id;
     $.ajax({
@@ -88,9 +86,7 @@ function getMatchedUsername(data){
         },
         success: function(data){
             if(data.data[0]){
-                console.log(data.data);
                 matchedUserUsername = data.data[0].username;
-                console.log('matchedUserUsername', matchedUserUsername);
             } else {
                 // var p = $("<p>").text("No goals from your goal-buddy today").addClass('center');
                 // $(".match-list").append(p);
@@ -122,6 +118,7 @@ function getMatchedUserGoals(data){
             day: day,
         },
         success: function(data){
+
             if(data.data[0]){
                 $('.all-goals-list').empty();
                 renderMatchedUserGoalOnDashboard(data.data);
@@ -176,7 +173,6 @@ function checkForInterestedMatches(){
         success: function(resp){
             if(resp.data[0] !== undefined){
                 $('.all-goals-list').empty();
-                debugger;
                 renderAllUsers(resp.data)
             } else {
                 // getData();
@@ -215,8 +211,6 @@ function getData(category){
                 var p = $("<p>").text("No users ready to match").addClass("center no-users");
                 $(".no-users-container").append(p);
             }
-
-
         },
         error: function(xhr, status, err){
             console.log(err)
@@ -229,14 +223,14 @@ function renderMatchedUserGoalOnDashboard(goals){
     for(var i=0; i<goals.length;i++){
         users.push(goals[i]);
         //Gets goal description
-        var goalDescription = goals[i].goal;
+        let goalDescription = goals[i].goal;
         let goalId = goals[i].goal_id;
         let userId =goals[i].user_id;
         //Creates goal container for each goal
-        var goalContainer = $('<div>').addClass('goal-container-goals goal').attr('id','goalId'+goalId);
+        let goalContainer = $('<div>').addClass('goal-container-goals goal').attr('id','goalId'+goalId);
 
         //Creates a container with the goal description
-        var goalBar = $("<div>").addClass('goal-description partner-goal-description z-depth-3');
+        let goalBar = $("<div>").addClass('goal-description partner-goal-description z-depth-3');
 
         let username = $("<div>", {
             text: matchedUserUsername + ":",
@@ -309,7 +303,6 @@ function renderAllUsers(users){
 
         goalContainer.append(goalBar, dropDownMenuButtonContainer);
 
-
         $('.user-names').append(goalContainer);
     
         $('.all-users-cotainer').append($('.user-names'));
@@ -380,7 +373,6 @@ function sendMatchToTable(thisUserId, interested_user_id ) {
         },
         success: function (json_data) {
             var data = json_data;
-            console.log(data);
             if(data.success){
             updateUsers(thisuser, interested_user);
             deleteMatchInterest(thisuser, interested_user)
@@ -407,10 +399,10 @@ function deleteMatchInterest(userId, interested_user_id) {
         },
         success: function (json_data) {
             var data = json_data;
-            console.log(data);
-
+        },
+        error: function(resp){
+            console.log("error deleting matched interest", resp)
         }
-
     })
 }
 
@@ -425,15 +417,14 @@ function updateUsers(userId, interested_user_id) {
         },
         success: function (json_data) {
             var data = json_data;
-            console.log(data);
             $(location).attr('href', '/matching_system.html')
 
+        },
+        error: function(resp){
+            console.log("error", resp)
         }
-
     })
 }
-
-
 
 
 function getUsersYouSelected(){
@@ -465,12 +456,10 @@ function renderYourSelectedUsers(usersData){
     $('.selected-users').empty();
 
     for(var i=0; i<usersData.length;i++){
-
         //Creates goal container for each goal
         var userContainer = $('<div>', {
             "class": "user-container"
-        })
-
+        });
         //Creates a container with the goal description
         var userBar = $("<div>").addClass('user-description z-depth-1');
         var userProfile = $("<div>").addClass('profileImg');
