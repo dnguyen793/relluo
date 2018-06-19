@@ -212,8 +212,9 @@ function completeGoal(goalId, goals) {
         },
         success: function (json_data) {
             var data = json_data;
-            $(goalSelector).addClass('animated bounceOutLeft');
-            setTimeout((()=>{$(goalSelector).remove()}), 500);
+            let goal = "#goalId"+goalId;
+            $(goal).addClass('animated bounceOutLeft');
+            setTimeout((()=>{$(goal).remove()}), 500);
         },
         error: function(message){
             $(".serverErr").text("Error completing goal!");
@@ -241,8 +242,9 @@ function incompleteGoal(goalId, goals) {
         },
         success: function (json_data) {
             var data = json_data;
-            $(goalSelector).addClass('animated bounceOutLeft');
-            setTimeout((()=>{$(goalSelector).remove()}), 500);
+            let goal = "#goalId"+goalId;
+            $(goal).addClass('animated bounceOutLeft');
+            setTimeout((()=>{$(goal).remove()}), 500);
         },
         error: function(){
             $(".serverErr").text("Error dismissing goal!");
