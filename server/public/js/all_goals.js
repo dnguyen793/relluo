@@ -23,7 +23,17 @@ function getData(){
             $('.all-goals-list').empty();
 
             if(resp.data.length === 0){
-                $(".message").removeClass('hidden');
+                let container = $("<div>",{
+                    "class": "message-container"
+                });
+                let message = $("<p>").text("You have no goal")
+                let link = $("<a>", {
+                    class: "btn btn-small z-depth-2",
+                    href: "create_goal.html",
+                    text: "Add Goal"
+                });
+                container.append(message, link);
+                $('.all-goals-list').append(container);
             }
             else{
                 rendergoalOnDashboard(resp.data)

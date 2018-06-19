@@ -488,7 +488,9 @@ p.user-name.truncate {
     text-align: center;
     font-size: 1.4rem;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 600;
+    background-color: white;
+    padding: 20px;
 }
 
 /**************************************************************/
@@ -548,6 +550,7 @@ p.user-name.truncate {
     }
     .matched-users-cotainer > .message{
         font-size: 1.3rem;
+        margin-left: 2rem;
     }
 
     .selected-users {
@@ -744,6 +747,8 @@ p.user-name.truncate {
     }
     .matched-users-cotainer > .message{
         font-size: 1.4rem;
+        margin-left: 4rem;
+        margin-top: 5rem;
     }
     .selected-users {
         margin-top: 0.1rem;

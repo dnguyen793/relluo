@@ -52,10 +52,11 @@ body{
 
 /************************************ MESSAGE SECTION **********/
 .message {
-    background-color: #F2F2F2;
+    background-color: white;
     width: 60%;
     position: relative;
     margin: 15% auto 0;
+    font-weight: 600;
 }
 
 .message p{
@@ -63,7 +64,7 @@ body{
     font-size: 1.5rem;
     text-align: center;
     padding-top: 5%;
-
+    text-transform: uppercase;
 }
 
 a.btn.btn-small{
@@ -276,7 +277,7 @@ nav ul li{
         padding-top: 2px;
     }
     .message p {
-        font-size: 1rem;
+        font-size: 1.3rem;
     }
     .serverErr{
         height: 1.5rem;

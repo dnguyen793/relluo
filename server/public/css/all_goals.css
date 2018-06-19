@@ -242,6 +242,20 @@ nav ul li{
 .hidden{
     display: none;
 }
+
+.message-container {
+    font-size: 1.5rem;
+    font-weight: 600;
+    background-color: white;
+    margin: 15% auto 0;
+    width: 60%;
+    padding: 10px;
+}
+
+.message-container p{
+    text-align: center;
+    text-transform: uppercase;
+}
 /************************************END - FOOTER**********/
 
 
@@ -263,6 +277,9 @@ nav ul li{
     }
     .message p {
         font-size: 1rem;
+    }
+    .message-container {
+        font-size: 1.3rem;
     }
     .serverErr{
         height: 1.5rem;
@@ -331,6 +348,10 @@ nav ul li{
     .message p {
         font-size: 1.5rem;
     }
+    .message-container {
+        font-size: 1.5rem;
+        margin: 5% auto 0;
+    }
     .serverErr{
         height: 2rem;
         font-size: 1.3rem; 
@@ -394,6 +415,10 @@ nav ul li{
     .title-bar{
         height: 5rem;
         font-size: 3rem;
+    }
+    .message-container {
+        font-size: 1.5rem;
+        margin: 15% auto 0;
     }
     
     .description{
