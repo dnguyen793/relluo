@@ -262,7 +262,7 @@ nav ul li{
         margin: 0% 7.5%;
     }
     #messages {
-        height: 85%;
+        height: calc(100% - 58px);
         font-size: 1rem;
         margin-top: 5px;
     }
@@ -315,7 +315,7 @@ nav ul li{
         margin: 0% 7.5%;
     }
     #messages {
-        height: 75%;
+        height: calc(100% - 58px);
         font-size: 1.2rem;
         margin-top: 5px;
     }
@@ -367,7 +367,7 @@ nav ul li{
         margin: 0% 7.5%;
     }
     #messages {
-        height: calc(100% - 75px);
+        height: calc(100% - 113px);
         font-size: 1.3rem;
         margin-top: 5px;
     }
