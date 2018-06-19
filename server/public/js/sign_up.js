@@ -78,8 +78,6 @@ function getUsernameInput() {
             messageForInvalidInput( usrnameInput, parent, child , text);
         }
         else{
-            // var parent = $('.usernameMsg');
-            // var child = $('.usernameMsg span');
             var text = 'Valid username';
 
             messageForValidInput( usrnameInput, parent, child , text);
@@ -198,8 +196,14 @@ function sendData(email, username, password) {
 
 
 function handleSignUpBtnClick() {
-
-    if( userEmail === undefined || userName === undefined || userPwd === undefined || userName.length < 5 || userPwd.length < 8 || invalidEmail ){
+    if( userEmail === undefined || userName === undefined || userPwd === undefined ){
+        $('.message span').text("All fields required").addClass('invalidInput');
+        setInterval( () => {
+            $('.message span').text('');
+        }, 3500);
+        return;
+    }
+    if( userName.length < 5 || userPwd.length < 8 || invalidEmail ){
         $('.message span').text("Please correct the error/errors above and try again").addClass('invalidInput');
         setInterval( () => {
             $('.message span').text('');
