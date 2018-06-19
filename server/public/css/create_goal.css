@@ -129,6 +129,7 @@ body{
     text-align: left;
     padding: 2% 3%;
     height: 5.2rem;
+    /* outline: none; */
 }
 
 .categoryDropdown span{
@@ -155,6 +156,7 @@ body{
     transition: all .3s linear;
     float: right;
     line-height: 30%;
+    user-select: none;
 }
 
 .categoryDropdown:hover{

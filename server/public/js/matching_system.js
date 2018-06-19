@@ -54,11 +54,20 @@ function matchedUsersCheck(){
         success: function(data){
 
             if(data.success){
-                for(let i = 0; i<data.data.length; i++){
-                    getMatchedUsername(data.data[i]);
-                    getMatchedUserGoals(data.data[i]);
-                }
+                if(!data.data.length){
+                    let message = $("<div>", {
+                        class: "message",
+                        text: "You have no match... Select one under ALL USERS"
+                    });
+                    $(".matched-users-cotainer").append(message);
 
+                }
+                else{
+                    for(let i = 0; i<data.data.length; i++){
+                        getMatchedUsername(data.data[i]);
+                        getMatchedUserGoals(data.data[i]);
+                    }
+                }
 
             } else {
                 checkForInterestedMatches();

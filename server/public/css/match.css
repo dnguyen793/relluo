@@ -483,6 +483,14 @@ p.user-name.truncate {
     color: black !important;
 }
 
+.matched-users-cotainer > .message {
+    margin: 1rem auto;
+    text-align: center;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
 /**************************************************************/
 /************************* Responsive *************************/
 @media only screen and (min-width : 320px) {
@@ -537,6 +545,9 @@ p.user-name.truncate {
         padding: 3% 4%;
         font-size: 1.3rem;
         line-height: 1.5;
+    }
+    .matched-users-cotainer > .message{
+        font-size: 1.3rem;
     }
 
     .selected-users {
@@ -637,6 +648,9 @@ p.user-name.truncate {
         font-size: 1.3rem;
         line-height: 1.5;
     }
+    .matched-users-cotainer > .message{
+        font-size: 1.3rem;
+    }
 
     .selected-users {
         margin-top: 0.5rem;
@@ -727,6 +741,9 @@ p.user-name.truncate {
         padding: 5% 12%;
         font-size: 1.5rem;
         line-height: 1.7;
+    }
+    .matched-users-cotainer > .message{
+        font-size: 1.4rem;
     }
     .selected-users {
         margin-top: 0.1rem;
