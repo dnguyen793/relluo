@@ -390,6 +390,7 @@ i.material-icons.usericon {
 .button-container > .dropdown-content {
     /* background-color: #FFE2A8;  */
     background-color: #F2F2F2;
+    min-width: auto;
 }
 
 .button-container > .dropdown-content li:hover{
@@ -479,6 +480,7 @@ p.user-name.truncate {
 .noClick{
     pointer-events: none;
     background-color: gray;
+    color: black !important;
 }
 
 /**************************************************************/

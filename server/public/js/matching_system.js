@@ -326,9 +326,9 @@ function sendInterestedMatches(matchedUserId,username, userID) {
             var data = json_data;
             console.log('matched users', data);
             if(data.success){
-                var element = "'#dropdown" + userID + "'";
+                var element = "#dropdown" + userID;
                 $(element).addClass("noClick");
-                $(element).find("li > a").text("Selected");
+                $(element).find("li > a").addClass("noClick");
             }
         }
 
