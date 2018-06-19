@@ -52,6 +52,7 @@ function handleCategoryDropdownClicked(){
     $('.categoryDropdown .dropdown-menu li').click(function () {
         $('.categoryDropdown').find('span').text($(this).text()).css('color','black');
         category = $(this).text();
+        $(".dropdown-menu").find("li:contains("+$(this).text()+")").css("pointer-events", "none");
     });
 
 }
