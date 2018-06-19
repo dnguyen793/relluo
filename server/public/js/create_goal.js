@@ -53,7 +53,7 @@ function handleCategoryDropdownClicked(){
         $('.categoryDropdown').find('span').text($(this).text()).css('color','black');
         category = $(this).text();
     });
-    console.log('category:', category);
+
 }
 
 function handleIdeaBtnClick() {
@@ -120,7 +120,6 @@ function getPredefinedGoalValue( targetElement, id ) {
     id.on('click', 'li', function () {
         goal = $(this).text();
         targetElement.removeClass('show').addClass('hidden');
-        console.log('goal:', goal);
 
         $('.predefined-goals').removeClass('show').addClass('hidden');
         $('.creatingGoal, .categoryContainer').removeClass('hidden').addClass('show');
@@ -134,8 +133,6 @@ function updateGoalCategoryOnDropdown( category ){
 }
 
 function handleNextPageButtonClicked(){
-    console.log('pageCount:', pageCount);
-
     //check which page the user is on
     if(pageCount === 0){
         var inputGoalField = validateGoalInputField();
@@ -150,12 +147,12 @@ function handleNextPageButtonClicked(){
         // debugger;
         $('.creatingGoal, .categoryContainer, .horizontalLine').removeClass('show').addClass('hidden');
         $('.days, .timeOfDay').removeClass('hidden').addClass('show');
-        $('.steps .one').css('background-color', 'rgba(162, 211, 218, 0.5)');
-        $('.steps .two').css('background-color', 'rgb(242, 197, 118)');
+        $('.steps .one').css({"background-color": "rgba(180, 213, 218, 0.5)", "color": "white"});
+        $('.steps .two').css({"background-color": "rgb(82, 145, 155)", "color": "rgb(242, 197, 118)"});
     }
     else if(pageCount === 1){
-        $('.steps .two').css('background-color', 'rgba(162, 211, 218, 0.5)');
-        $('.steps .three').css('background-color', 'rgb(242, 197, 118)');
+        $('.steps .two').css({"background-color": "rgba(180, 213, 218, 0.5)", "color": "white"});
+        $('.steps .three').css({"background-color": "rgb(82, 145, 155)", "color": "rgb(242, 197, 118)"});
 
         var dateCheckBox = validateDateCheckBox();
         if( !dateCheckBox ){
@@ -169,7 +166,7 @@ function handleNextPageButtonClicked(){
 
     }
     else if(pageCount === 2){
-        $('.steps .three').css('background-color', 'rgba(162, 211, 218, 0.5)');
+        $('.steps .three').css({"background-color": "rgba(180, 213, 218, 0.5)", "color": "white"});
 
       var finishOn = validateFinishDateSelection();
 
@@ -185,7 +182,6 @@ function handleNextPageButtonClicked(){
 }
 
 function handleSubmitButtonClicked() {
-    console.log('add btn clicked');
 
     //loop thru the selectedDate array and create object for each day
     for(var i = 0; i<daysAndTime.length; i++){
@@ -197,7 +193,6 @@ function handleSubmitButtonClicked() {
         postGoalToServer(newObject);
         goalAndDateArray.push(newObject);
     }
-    console.log("goalAndDateArray: ", goalAndDateArray)
 
     clearUserInput();
 }
@@ -241,7 +236,6 @@ function validateDateCheckBox() {
         //get the values of the selected dates and store in an array
         Array.from($("input[type='checkbox']")).filter((checkbox) => checkbox.checked).map((checkbox) =>{
 
-            console.log('checkbox value:', checkbox.value)
             var time = getSelectedTimeFrameValue(checkbox.value);
             if(time === null){
                 $(".days > p").addClass("error").text("You Must Select the Day and Time")
@@ -249,7 +243,6 @@ function validateDateCheckBox() {
             }
             else{
                 daysAndTime.push([convertDayIntoNumberFormat(checkbox.value), time]);
-                console.log('array: ', daysAndTime);
                 result = true;
             }
         });
@@ -333,7 +326,7 @@ function validateFinishDateSelection() {
         $(".endDate > p").removeClass("error").text("Select End Date");
         //get the end date
         finishDate = getFinishDate();
-        console.log('endDate:', finishDate);
+
         return true;
     }
 }
@@ -416,7 +409,6 @@ function clearUserInput() {
 
 function postGoalToServer( object ){
 
-    console.log('created Object', object);
     $.ajax({
         type: "POST",
         url: serverBase+"/goals",
@@ -431,7 +423,7 @@ function postGoalToServer( object ){
         },
         success: function (json_data) {
             var data = json_data;
-            console.log(data);
+
             if (json_data.success) {
                 setTimeout(()=>{(                
                     $('.successMsg').addClass('hidden').removeClass('show')

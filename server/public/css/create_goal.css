@@ -65,7 +65,8 @@ body{
 }
 
 .steps .one{
-    background-color: rgb(242, 197, 118);    
+    background-color: rgb(82, 145, 155);
+    color: rgb(242, 197, 118)
 }
 
 .steps .two,
