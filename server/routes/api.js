@@ -402,11 +402,19 @@ module.exports = function (app) {
     //==========GET ALL UNMATCHED USERS===========//
     app.post('/matching', (req, res, next) => {
         let userId = req.session.userId;
-        let query = 'SELECT * FROM ?? WHERE status <> ? AND user_id <> ?';
+        // let query = 'SELECT * FROM ?? WHERE status <> ? AND user_id <> ?';
+        let query = 'SELECT `users`.* FROM ?? ' +
+        'LEFT JOIN `interested_matches` AS im1 ON `users`.`user_id` = im1.`interested_user_id` AND ? = im1.`user_id` ' +
+        'LEFT JOIN `interested_matches` AS im2 ON `users`.`user_id` = im2.`user_id` AND ? = im2.`interested_user_id` '+
+        'WHERE im1.`id` IS NULL ' +
+        'AND im2.`id` IS NULL ' +
+        'AND `users`.`user_id` != ?';
+
         console.log(query);
         let inserts = [
             'users',
-            1,
+            userId,
+            userId,
             userId
             // category, //Category they select on sign_up?
         ];
@@ -564,7 +572,11 @@ module.exports = function (app) {
         let sql = mysql.format(query, inserts);
 
         connection.query(sql, (err, results, fields) => {
-            if (err) return next(err);
+            if (err) {
+                // return next(false, []);
+                res.json({success: true, data: results});
+                return;
+            };
 
             const output = {
                 success: true,
