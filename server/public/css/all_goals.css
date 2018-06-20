@@ -110,6 +110,7 @@ a.btn.btn-small{
     justify-content: center;
     font-family: 'Roboto', sans-serif;
     hyphens: auto;
+    word-break: break-word;
     color: white;
     border: 1px solid white;
     border-top-left-radius: 10px;
