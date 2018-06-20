@@ -30,7 +30,6 @@ function postUserToServer() {
             } else if (data.success === true){
                 window.location = serverBase+"/dashboard";
             }
-            console.log("This is the data" + json_data);
             
         },
         error: function (xhr, status, error) {
