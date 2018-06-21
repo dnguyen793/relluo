@@ -403,16 +403,22 @@ module.exports = function (app) {
     app.post('/matching', (req, res, next) => {
         let userId = req.session.userId;
         // let query = 'SELECT * FROM ?? WHERE status <> ? AND user_id <> ?';
-        let query = 'SELECT `users`.* FROM ?? ' +
+        let query = 'SELECT `users`.* FROM `users` ' +
         'LEFT JOIN `interested_matches` AS im1 ON `users`.`user_id` = im1.`interested_user_id` AND ? = im1.`user_id` ' +
-        'LEFT JOIN `interested_matches` AS im2 ON `users`.`user_id` = im2.`user_id` AND ? = im2.`interested_user_id` '+
+        'LEFT JOIN `interested_matches` AS im2 ON `users`.`user_id` = im2.`user_id` AND ? = im2.`interested_user_id` ' +
+        'LEFT JOIN `matched_users` AS mu1 ON `users`.`user_id` = mu1.`user_id` AND ? = mu1.`matched_user_id` ' +
+        'LEFT JOIN `matched_users` AS mu2 ON `users`.`user_id` = mu2.`matched_user_id` AND ? = mu2.`user_id` ' +
         'WHERE im1.`id` IS NULL ' +
         'AND im2.`id` IS NULL ' +
-        'AND `users`.`user_id` != ?';
+        'AND mu1.`id` IS NULL ' +
+        'AND mu2.`id` IS NULL ' +
+        'AND `users`.`user_id` != ? ';
 
         console.log(query);
         let inserts = [
             'users',
+            userId,
+            userId,
             userId,
             userId,
             userId
